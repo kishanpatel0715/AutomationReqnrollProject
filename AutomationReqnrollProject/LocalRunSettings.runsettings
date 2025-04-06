@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <TestRunParameters>
+    <Parameter name="Browser" value="chromee" />
+    <Parameter name="Environment" value="QA" />
+	<Parameter name="BaseUrl" value="https://www.saucedemo.com/" />
+    <Parameter name="Headless" value="false" />
+  </TestRunParameters>
+</RunSettings>

@@ -1,4 +1,5 @@
 using AutomationReqnrollProject.Helper;
+using NUnit.Framework;
 using OpenQA.Selenium;
 
 
@@ -12,7 +13,7 @@ namespace AutomationReqnrollProject
         WebDriver driver;
         public Hooks() 
         {
-            this.driver = Browser.getDriver();
+            this.driver = Browser.getDriver(TestContext.Parameters["Browser"]);
         }
 
         [BeforeScenario("@tag1")]

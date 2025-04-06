@@ -17,15 +17,15 @@ namespace AutomationReqnrollProject.StepDefinitions
        
         public LoginStepDefinitions()
         {            
-            this.driver = Browser.driver;
+            driver = Browser.driver;
             loginPage = new LoginPage();
-            waitHelper = new WaitHelper(this.driver);
+            waitHelper = new WaitHelper(driver);
         }
 
         [Given("User is on the login page")]
         public void GivenUserIsOnTheLoginPage()
         {
-           driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+            driver.Navigate().GoToUrl(TestContext.Parameters["BaseUrl"]);
         }
 
         [When("User enters {string} and {string}")]
