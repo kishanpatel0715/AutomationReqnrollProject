@@ -2,23 +2,22 @@ using AutomationReqnrollProject.Helper;
 using AutomationReqnrollProject.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace AutomationReqnrollProject.StepDefinitions
 {
     [Binding]
-    public sealed class LoginStepDefinitions
+    public sealed class Login_StepDefinitions
     {
         // For additional details on Reqnroll step definitions see https://go.reqnroll.net/doc-stepdef
         WebDriver driver;
-        LoginPage loginPage;
+        Login_Page loginPage;
         WaitHelper waitHelper;
        
        
-        public LoginStepDefinitions()
+        public Login_StepDefinitions()
         {            
             driver = Browser.driver;
-            loginPage = new LoginPage();
+            loginPage = new Login_Page();
             waitHelper = new WaitHelper(driver);
         }
 

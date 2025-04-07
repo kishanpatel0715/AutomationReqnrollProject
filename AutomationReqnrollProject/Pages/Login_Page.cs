@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace AutomationReqnrollProject.Pages
 {
-    class LoginPage
+    class Login_Page
     {
         WebDriver driver;
-        public LoginPage()
+        public Login_Page()
         {
          this.driver = Browser.driver;   
         }

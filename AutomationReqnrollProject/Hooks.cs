@@ -38,9 +38,7 @@ namespace AutomationReqnrollProject
         public void AfterScenarioCloseBrowser()
         {
             //TODO: implement logic that has to run after executing each scenario
-            Console.WriteLine("Closing browser");
             driver.Quit();
-           
         } 
     }
 }

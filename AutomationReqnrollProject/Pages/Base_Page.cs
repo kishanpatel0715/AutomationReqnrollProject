@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutomationReqnrollProject.Pages
 {
-    class BasePage
+    class Base_Page
     {
     }
 }
