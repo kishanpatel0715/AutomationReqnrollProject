@@ -6,17 +6,17 @@ namespace AutomationReqnrollProject.StepDefinitions
     [Binding]
     public class CSV_Verification_StepDefinitions
     {
-        CSV_Verification_Page cSV_Verification_Page;
+        Base_Page base_Page;
         public CSV_Verification_StepDefinitions()
         {
-            cSV_Verification_Page = new CSV_Verification_Page();
+            base_Page = new Base_Page();
         }
 
         [Then("data of {string} file is matched with {string} file data")]
         public void ThenDataOfFileIsMatchedWithFileData(string actualCSV, string expectedCSV)
         {
-            String actualFilePath = cSV_Verification_Page.getFilePath(actualCSV);
-            String expectedFilePath = cSV_Verification_Page.getFilePath(expectedCSV);
+            String actualFilePath = base_Page.getFilePath(actualCSV);
+            String expectedFilePath = base_Page.getFilePath(expectedCSV);
 
             String[] actualLinesData = File.ReadAllLines(actualFilePath);
             String[] expectedLinesData = File.ReadAllLines(expectedFilePath);
