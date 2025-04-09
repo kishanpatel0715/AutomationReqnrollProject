@@ -13,7 +13,6 @@ namespace AutomationReqnrollProject.StepDefinitions
         Login_Page loginPage;
         WaitHelper waitHelper;
        
-       
         public Login_StepDefinitions()
         {            
             driver = Browser.driver;
@@ -27,45 +26,87 @@ namespace AutomationReqnrollProject.StepDefinitions
             driver.Navigate().GoToUrl(TestContext.Parameters["BaseUrl"]);
         }
 
-        [When("User enters {string} and {string}")]
+        [When("user enters {string} and {string}")]
         public void WhenUserEntersAnd(string userName, string password)
         {
             loginPage.EnterCredential(userName, password);
         }
 
-        [When("Clicks on login button")]
-        public void WhenClicksOnLoginButton()
+        [When("user login")]
+        public void WhenUserLogin()
         {
             loginPage.login();
         }
 
-        [Then("User should be redirected to the home page")]
-        public void ThenUserShouldBeRedirectedToTheHomePage()
+        [Then("user is logged-in successfully")]
+        public void ThenUserIsLogged_InSuccessfully()
         {
-            Assert.That(driver.Title, Is.EqualTo("Swag Labs"), "User is not logged in successfully");
-           // loginPage.opensMenu();
-            //  Assert.True(driver.FindElement(By.Id("react-burger-menu-btn")).Displayed, "User is not logged in successfully");
+            bool isSideMenuIsDisplayed;
+            try
+            {
+                isSideMenuIsDisplayed = driver.FindElement(loginPage.sideMenuElement).Displayed;
+            }
+
+            catch(NoSuchElementException)
+            {
+                isSideMenuIsDisplayed = false;
+            }
+
+            Assert.True(isSideMenuIsDisplayed, "Login is failed");
         }
 
-        [When(@"User enters invalid (.*) and (.*)")]
+        [When(@"user enters invalid (.*) and (.*)")]
         public void WhenUserEntersInvalidCredentials(string userName, string password)
         {
             loginPage.EnterCredential(userName, password);
         }
 
-        [When("user opens menu")]
-        public void WhenUserOpensMenu()
+        [When("user opens side-menu")]
+        public void WhenUserOpensSideMenu()
         {
             loginPage.opensMenu();
         }
 
-        [Then("Logout option is displayed")]
-        public void ThenLogoutOptionIsDisplayed()
+        [When("user logout")]
+        public void WhenUserLogout()
         {
-            //Thread.Sleep(9000);
-            waitHelper.WaitForElementToBeVisible(By.Id("logout_sidebar_link"), 9);
-            Assert.IsTrue(driver.FindElement(By.Id("logout_sidebar_link")).Displayed, "Logout option is not displayed");
+            loginPage.logout();
         }
 
+        [Then("error message is displayed")]
+        public void ThenErrorMessageIsDisplayed()
+        {
+            bool isErrorMessageDisplayed;
+
+            try
+            {
+                isErrorMessageDisplayed = driver.FindElement(loginPage.loginErrorMessageElement).Displayed;
+            }
+
+            catch(NoSuchElementException)
+             {
+                 isErrorMessageDisplayed = false;
+             }
+
+            Assert.True(isErrorMessageDisplayed, "Invalid user gets logged in successfully");
+        }
+
+        [Then("user is logged-out")]
+        public void ThenUserIsLogged_Out()
+        {
+            bool isLoginButtonDisplayed;
+
+            try
+            {
+                isLoginButtonDisplayed = driver.FindElement(loginPage.loginElement).Displayed;
+            }
+
+            catch (NoSuchElementException)
+            {
+                isLoginButtonDisplayed = false;
+            }
+
+            Assert.True(isLoginButtonDisplayed, "Logout is failed");
+        }
     }
 }

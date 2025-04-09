@@ -1,10 +1,5 @@
 ﻿using AutomationReqnrollProject.Helper;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutomationReqnrollProject.Pages
 {
@@ -16,11 +11,12 @@ namespace AutomationReqnrollProject.Pages
          this.driver = Browser.driver;   
         }
 
-        By userNameElement = By.Id("user-name");
-        By passwordElement = By.Id("password");
-        By loginElement = By.Id("login-button");
-        By logoutElement = By.Id("logout_sidebar_link");
-        By menu = By.CssSelector("#react-burger-menu-btn");
+        public By userNameElement = By.Id("user-name");
+        public By passwordElement = By.Id("password");
+        public By loginElement = By.Id("login-button");
+        public By logoutElement = By.Id("logout_sidebar_link");
+        public By loginErrorMessageElement = By.ClassName("error-message-container");
+        public By sideMenuElement = By.Id("react-burger-menu-btn");
 
         public void EnterCredential(String userName, String password)
         {
@@ -38,7 +34,13 @@ namespace AutomationReqnrollProject.Pages
         public void opensMenu()
 
         {
-            driver.FindElement((menu)).Click();
+            driver.FindElement((sideMenuElement)).Click();
+        }
+
+        public void logout()
+        {
+            new WaitHelper(driver).WaitForElementToBeVisible(logoutElement, 5);
+            driver.FindElement(logoutElement).Click();
         }
     }
 }
