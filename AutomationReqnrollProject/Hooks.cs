@@ -8,30 +8,24 @@ namespace AutomationReqnrollProject
     [Binding]
     public sealed class Hooks
     {
-        // For additional details on Reqnroll hooks see https://go.reqnroll.net/doc-hooks
-
         WebDriver driver;
-        public Hooks() 
+        ScenarioContext _scenarioContext;
+        public Hooks(ScenarioContext scenarioContext)
         {
             this.driver = Browser.getDriver(TestContext.Parameters["Browser"]);
-        }
+            _scenarioContext = scenarioContext;
+        } 
 
         [BeforeScenario("@tag1")]
         public void BeforeScenarioWithTag()
         {
-            // Example of filtering hooks using tags. (in this case, this 'before scenario' hook will execute if the feature/scenario contains the tag '@tag1')
-            // See https://go.reqnroll.net/doc-hooks#tag-scoping
 
-            //TODO: implement logic that has to run before executing each scenario
         }
 
         [BeforeScenario(Order = 1)]
         public void FirstBeforeScenario()
         {
-            // Example of ordering the execution of hooks
-            // See https://go.reqnroll.net/doc-hooks#hook-execution-order
 
-            //TODO: implement logic that has to run before executing each scenario
         }
 
         [AfterScenario]
@@ -39,6 +33,27 @@ namespace AutomationReqnrollProject
         {
             //TODO: implement logic that has to run after executing each scenario
             driver.Quit();
-        } 
+        }
+
+        [AfterStep]
+        public void AfterFailedStepTakeScreenshot()
+        {
+            if (_scenarioContext.TestError != null) 
+            {
+                ITakesScreenshot takeScreenshot = (ITakesScreenshot)driver;
+                Screenshot screenShot = takeScreenshot.GetScreenshot();
+
+                string screenshotDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Screenshots");
+
+                if (!Directory.Exists(screenshotDirectory))
+                {
+                    Directory.CreateDirectory(screenshotDirectory);
+                }
+
+                string screenshotName = TestContext.CurrentContext.Test.Name.Replace(" ", "_") + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".png";
+                string filePath = Path.Combine(screenshotDirectory, screenshotName);
+                screenShot.SaveAsFile(filePath);
+            }
+        }
     }
 }
