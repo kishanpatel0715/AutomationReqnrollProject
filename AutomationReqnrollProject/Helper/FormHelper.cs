@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace AutomationReqnrollProject.Helper
 {
@@ -21,10 +22,16 @@ namespace AutomationReqnrollProject.Helper
             driver.FindElement(element).Click();
         }
 
-        public void SelectFromDropDown(By selectElement, string selectOption)
+        public void SelectFromCustomDropDown(By selectElement, string selectOption)
         {
             driver.FindElement(selectElement).Click();
             driver.FindElement(By.XPath($"//div[text()='{selectOption}']")).Click();
+        }
+
+        public void SelectFromStandardDropDown(By selectElement, string selectOption)
+        {
+            SelectElement select = new SelectElement(driver.FindElement(selectElement));
+            select.SelectByText(selectOption);
         }
     }
 }
