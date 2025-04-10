@@ -11,13 +11,11 @@ namespace AutomationReqnrollProject.StepDefinitions
         // For additional details on Reqnroll step definitions see https://go.reqnroll.net/doc-stepdef
         WebDriver driver;
         Login_Page loginPage;
-        WaitHelper waitHelper;
        
         public Login_StepDefinitions()
         {            
             driver = Browser.driver;
             loginPage = new Login_Page();
-            waitHelper = new WaitHelper(driver);
         }
 
         [Given("User is on the login page")]
@@ -44,7 +42,7 @@ namespace AutomationReqnrollProject.StepDefinitions
             bool isSideMenuIsDisplayed;
             try
             {
-                isSideMenuIsDisplayed = driver.FindElement(loginPage.sideMenuElement).Displayed;
+                isSideMenuIsDisplayed = driver.FindElement(loginPage.SideMenuElement).Displayed;
             }
 
             catch(NoSuchElementException)
@@ -80,7 +78,7 @@ namespace AutomationReqnrollProject.StepDefinitions
 
             try
             {
-                isErrorMessageDisplayed = driver.FindElement(loginPage.loginErrorMessageElement).Displayed;
+                isErrorMessageDisplayed = driver.FindElement(loginPage.LoginErrorMessageElement).Displayed;
             }
 
             catch(NoSuchElementException)
@@ -98,7 +96,7 @@ namespace AutomationReqnrollProject.StepDefinitions
 
             try
             {
-                isLoginButtonDisplayed = driver.FindElement(loginPage.loginElement).Displayed;
+                isLoginButtonDisplayed = driver.FindElement(loginPage.LoginElement).Displayed;
             }
 
             catch (NoSuchElementException)

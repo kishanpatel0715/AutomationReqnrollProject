@@ -2,15 +2,15 @@
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
-
 namespace AutomationReqnrollProject.Helper
 {
     class WaitHelper
     {
         WebDriver driver;
-        public WaitHelper(WebDriver driver)
+
+        public WaitHelper()
         { 
-            this.driver = driver;
+            this.driver = Browser.driver;
         }
 
         public void WaitForElementToBeVisible(By element, int timeOutInSeconds)

@@ -11,36 +11,36 @@ namespace AutomationReqnrollProject.Pages
          this.driver = Browser.driver;   
         }
 
-        public By userNameElement = By.Id("user-name");
-        public By passwordElement = By.Id("password");
-        public By loginElement = By.Id("login-button");
-        public By logoutElement = By.Id("logout_sidebar_link");
-        public By loginErrorMessageElement = By.ClassName("error-message-container");
-        public By sideMenuElement = By.Id("react-burger-menu-btn");
+        public By UserNameElement = By.Id("user-name");
+        public By PasswordElement = By.Id("password");
+        public By LoginElement = By.Id("login-button");
+        public By LogoutElement = By.Id("logout_sidebar_link");
+        public By LoginErrorMessageElement = By.ClassName("error-message-container");
+        public By SideMenuElement = By.Id("react-burger-menu-btn");
 
         public void EnterCredential(String userName, String password)
         {
             driver.Navigate().GoToUrl("https://www.saucedemo.com/");
 
-            driver.FindElement(userNameElement).SendKeys(userName);
-            driver.FindElement(passwordElement).SendKeys(password);          
+            driver.FindElement(UserNameElement).SendKeys(userName);
+            driver.FindElement(PasswordElement).SendKeys(password);          
         }
 
         public void login()
         {
-            driver.FindElement(loginElement).Click();
+            driver.FindElement(LoginElement).Click();
         }
 
         public void opensMenu()
 
         {
-            driver.FindElement((sideMenuElement)).Click();
+            driver.FindElement(SideMenuElement).Click();
         }
 
         public void logout()
         {
-            new WaitHelper(driver).WaitForElementToBeVisible(logoutElement, 5);
-            driver.FindElement(logoutElement).Click();
+            new WaitHelper().WaitForElementToBeVisible(LogoutElement, 5);
+            driver.FindElement(LogoutElement).Click();
         }
     }
 }

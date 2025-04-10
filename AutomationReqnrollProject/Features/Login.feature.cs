@@ -94,11 +94,9 @@ namespace AutomationReqnrollProject.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("TC:123456 Verify Successful Login with Valid Credentials")]
-        [NUnit.Framework.CategoryAttribute("One")]
         public async System.Threading.Tasks.Task TC123456VerifySuccessfulLoginWithValidCredentials()
         {
-            string[] tagsOfScenario = new string[] {
-                    "One"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:123456 Verify Successful Login with Valid Credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
