@@ -77,12 +77,12 @@ namespace AutomationReqnrollProject.Pages
 
         string State
         {
-            set => formHelper.SelectFromDropDown(StateElement, value);
+            set => formHelper.SelectFromCustomDropDown(StateElement, value);
         }
 
         string City
         {
-            set => formHelper.SelectFromDropDown(CityElement, value);
+            set => formHelper.SelectFromCustomDropDown(CityElement, value);
         }
 
         public void EnterPracticeFormData(PracticeFormUIModel model)
