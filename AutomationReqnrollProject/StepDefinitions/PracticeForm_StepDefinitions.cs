@@ -3,6 +3,7 @@ using AutomationReqnrollProject.Models;
 using AutomationReqnrollProject.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Linq.Expressions;
 
 namespace AutomationReqnrollProject.StepDefinitions
 {
@@ -12,11 +13,14 @@ namespace AutomationReqnrollProject.StepDefinitions
         WebDriver driver;
         PracticeForm_Page practiceForm_Page;
         WaitHelper waitHelper;
+        CommonMethods commonMethods;
 
         public PracticeForm_StepDefinitions()
         {
             driver = Browser.driver;
             practiceForm_Page = new PracticeForm_Page();
+            waitHelper = new WaitHelper();
+            commonMethods = new CommonMethods();
         }
 
         [When("user navigates to the practice form page")]
@@ -54,7 +58,7 @@ namespace AutomationReqnrollProject.StepDefinitions
                 IsSuccessMessageIsDisplayed = false;
             }
 
-           Assert.True(IsSuccessMessageIsDisplayed, "Form submission is failed");
+            Assert.True(IsSuccessMessageIsDisplayed, "Form submission is failed");
         }
 
         [Then("following details are displayed")]
@@ -71,7 +75,85 @@ namespace AutomationReqnrollProject.StepDefinitions
             Assert.AreEqual(input.Hobbies, output[0].Hobbies, "Hobbies is incorrect");
             Assert.AreEqual(input.Picture, output[0].Picture, "Picture is incorrect");
             Assert.AreEqual(input.CurrentAddress, output[0].CurrentAddress, "Current Address is incorrect");
-            Assert.AreEqual(input.State +" " + input.City, output[0].State, "State or City is incorrect");
+            Assert.AreEqual(input.State + " " + input.City, output[0].State, "State or City is incorrect");
+        }
+
+        [When("user navigates to the Dynamic Properties page")]
+        public void WhenUserNavigatesToTheDynamicPropertiesPage()
+        {
+            commonMethods.Visit("https://demoqa.com/dynamic-properties");
+        }
+
+        [Then("after {int} seconds, button is visible")]
+        public void ThenAfterSecondsButtonIsVisible(int p0)
+        {
+            bool isElementDisplayedAfter5Sec;
+
+            try
+            {
+                isElementDisplayedAfter5Sec = waitHelper.WaitForElementToBeVisible(practiceForm_Page.VisibleAfter5SecElement, 1).Displayed;
+            }
+            catch (WebDriverTimeoutException)
+            {
+                isElementDisplayedAfter5Sec = false;
+            }
+            catch (NoSuchElementException)
+            {
+                isElementDisplayedAfter5Sec = false;
+            }
+
+            Assert.True(isElementDisplayedAfter5Sec, "Button is not visible after 5 seconds");
+        }
+
+        [Then("after {int} seconds, button is enabled")]
+        public void ThenAfterSecondsButtonIsEnabled(int p0)
+        {
+            bool isElementEnabledAfter5Sec;
+            try
+            {
+                isElementEnabledAfter5Sec = waitHelper.WaitForElementToBeEnableOrClickable(practiceForm_Page.EnabledAfter5SecElement, 5).Enabled;
+            }
+
+            catch(Exception e)
+            {
+                isElementEnabledAfter5Sec = false;
+            }
+
+            Assert.True(isElementEnabledAfter5Sec, "Button is not enabled after 5 seconds");
+        }
+
+        [When("user navigates to the Alerts, Frame & Windows page page")]
+        public void WhenUserNavigatesToTheAlertsFrameWindowsPagePage()
+        {
+            commonMethods.Visit("https://demoqa.com/alerts");
+        }
+
+        [When("user clicks on button to see alert")]
+        public void WhenUserClicksOnButtonToSeeAlert()
+        {
+            commonMethods.Click(practiceForm_Page.AlertElement);
+        }
+
+        [Then("alert is displayed with text {string}")]
+        public void ThenAlertIsDisplayedWithText(string alertExpectedText)
+        {
+            //IAlert alert = driver.SwitchTo().Alert();
+
+            IAlert alert = waitHelper.WaitForAlert(5);
+            Assert.AreEqual(alertExpectedText, alert.Text, "Alert Text is incorrect");
+        }
+
+        [When("user accepts the alert")]
+        public void WhenUserAcceptsTheAlert()
+        {
+            IAlert alert = driver.SwitchTo().Alert();
+            alert.Accept();
+        }
+
+        [Then("alert is disappeared")]
+        public void ThenAlertIsDisappeared()
+        {
+            Assert.True(driver.FindElement(practiceForm_Page.AlertElement).Displayed, "Alert is still present");
         }
     }
 }

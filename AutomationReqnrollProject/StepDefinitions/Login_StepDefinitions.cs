@@ -11,17 +11,18 @@ namespace AutomationReqnrollProject.StepDefinitions
         // For additional details on Reqnroll step definitions see https://go.reqnroll.net/doc-stepdef
         WebDriver driver;
         Login_Page loginPage;
-       
+        CommonMethods commonMethods;
         public Login_StepDefinitions()
         {            
             driver = Browser.driver;
             loginPage = new Login_Page();
+            commonMethods = new CommonMethods();
         }
 
         [Given("User is on the login page")]
         public void GivenUserIsOnTheLoginPage()
         {
-            driver.Navigate().GoToUrl(TestContext.Parameters["BaseUrl"]);
+            commonMethods.Visit(TestContext.Parameters["BaseUrl"]);
         }
 
         [When("user enters {string} and {string}")]

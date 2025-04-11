@@ -1,6 +1,5 @@
 ﻿Feature: PracticeForm
-
-A short summary of the feature
+To test Practice Form
 
 Scenario: TC:123459 Verify Practice Form submission
 	When user navigates to the practice form page
@@ -32,3 +31,18 @@ Scenario: TC:123459 Verify Practice Form submission
 	| Current Address | 25 red sky                |
 	| State           | Haryana                   |
 	| City            | Panipat                   |
+
+	Scenario: TC:223459 Verify button gets visible after 5 seconds
+		When user navigates to the Dynamic Properties page
+	    Then after 5 seconds, button is visible
+
+	Scenario: TC:323459 Verify button gets enabled after 5 seconds
+		When user navigates to the Dynamic Properties page
+	    Then after 5 seconds, button is enabled
+
+	Scenario: TC:423459 Verify alert
+		When user navigates to the Alerts, Frame & Windows page page
+		And user clicks on button to see alert
+	    Then alert is displayed with text "You clicked a button"
+		When user accepts the alert
+		Then alert is disappeared 

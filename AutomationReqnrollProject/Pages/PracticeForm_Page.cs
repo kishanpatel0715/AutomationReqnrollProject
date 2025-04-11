@@ -15,16 +15,19 @@ namespace AutomationReqnrollProject.Pages
             formHelper = new FormHelper();
         }
 
-        By FirstNameElement = By.Id("firstName");
-        By LastNameElement = By.Id("lastName");
-        By EmailElement = By.Id("userEmail");
-        By MobileElement = By.Id("userNumber");
-        By SubjectsElement = By.Id("subjectsInput");
-        By PictureElement = By.Id("uploadPicture");
-        By CurrentAddressElement = By.Id("currentAddress");
-        By StateElement = By.Id("state");
-        By CityElement = By.Id("city");
-        By SubmitElement = By.Id("submit");
+        public By FirstNameElement = By.Id("firstName");
+        public By LastNameElement = By.Id("lastName");
+        public By EmailElement = By.Id("userEmail");
+        public By MobileElement = By.Id("userNumber");
+        public By SubjectsElement = By.Id("subjectsInput");
+        public By PictureElement = By.Id("uploadPicture");
+        public By CurrentAddressElement = By.Id("currentAddress");
+        public By StateElement = By.Id("state");
+        public By CityElement = By.Id("city");
+        public By SubmitElement = By.Id("submit");
+        public By VisibleAfter5SecElement = By.Id("visibleAfter");
+        public By EnabledAfter5SecElement = By.Id("enableAfter");
+        public By AlertElement  = By.Id("alertButton");
 
         string FirstName
         {
