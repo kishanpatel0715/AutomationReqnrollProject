@@ -1,9 +1,11 @@
+using AutomationReqnrollProject.Context;
 using AutomationReqnrollProject.Helper;
 using AutomationReqnrollProject.Models;
 using AutomationReqnrollProject.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using System.Linq.Expressions;
+using System.Xml.Linq;
 
 namespace AutomationReqnrollProject.StepDefinitions
 {
@@ -137,9 +139,7 @@ namespace AutomationReqnrollProject.StepDefinitions
         [Then("alert is displayed with text {string}")]
         public void ThenAlertIsDisplayedWithText(string alertExpectedText)
         {
-            //IAlert alert = driver.SwitchTo().Alert();
-
-            IAlert alert = waitHelper.WaitForAlert(5);
+            IAlert alert = driver.SwitchTo().Alert();
             Assert.AreEqual(alertExpectedText, alert.Text, "Alert Text is incorrect");
         }
 
@@ -154,6 +154,62 @@ namespace AutomationReqnrollProject.StepDefinitions
         public void ThenAlertIsDisappeared()
         {
             Assert.True(driver.FindElement(practiceForm_Page.AlertElement).Displayed, "Alert is still present");
+        }
+
+        [When("user clicks on button to see delayed alert")]
+        public void WhenUserClicksOnButtonToSeeDelayedAlert()
+        {
+            driver.FindElement(practiceForm_Page.DelayedAlertElement).Click();
+        }
+
+        [Then("delayed alert is displayed with text {string}")]
+        public void ThenDelayedAlertIsDisplayedWithText(string alertExpectedText)
+        {
+            waitHelper.WaitForAlert(5);
+        }
+
+        [When("user clicks on button to see confirm box")]
+        public void WhenUserClicksOnButtonToSeeConfirmBox()
+        {
+            driver.FindElement(practiceForm_Page.ConfirmBoxElement).Click();
+        }
+
+        [When("user cancels the alert")]
+        public void WhenUserCancelsTheAlert()
+        {
+            //driver.SwitchTo().Alert().Dismiss();
+            waitHelper.WaitForAlert(3).Dismiss();
+        }
+
+        [Then("{string} message is displayed")]
+        public void ThenMessageIsDisplayed(string expectedMessage)
+        {
+            string actualMessage;
+
+            if (expectedMessage.Contains("entered"))
+            {
+                actualMessage = practiceForm_Page.GetEnteredNameSuccessText(AlertContext.name).Text;
+            }
+            else
+            {
+                actualMessage = driver.FindElement(practiceForm_Page.ConfirmResultTextElement).Text;
+            }
+
+            Assert.AreEqual(expectedMessage, actualMessage, "Incorrect message is displayed");
+        }
+
+        [When("user clicks on button to see prompt box")]
+        public void WhenUserClicksOnButtonToSeePromptBox()
+        {
+            driver.FindElement(practiceForm_Page.PromptElement).Click();
+        }
+
+        [When("user enters the name {string}")]
+        public void WhenUserEntersTheName(string name)
+        {
+            AlertContext.name = name;
+            IAlert alert = driver.SwitchTo().Alert();
+            alert.SendKeys(name);
         }
     }
 }

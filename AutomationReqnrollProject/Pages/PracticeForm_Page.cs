@@ -1,4 +1,5 @@
-﻿using AutomationReqnrollProject.Helper;
+﻿using AutomationReqnrollProject.Context;
+using AutomationReqnrollProject.Helper;
 using AutomationReqnrollProject.Models;
 using OpenQA.Selenium;
 
@@ -28,6 +29,16 @@ namespace AutomationReqnrollProject.Pages
         public By VisibleAfter5SecElement = By.Id("visibleAfter");
         public By EnabledAfter5SecElement = By.Id("enableAfter");
         public By AlertElement  = By.Id("alertButton");
+        public By DelayedAlertElement = By.XPath("//*[contains(@id, 'timerAlert')]");
+        public By ConfirmBoxElement = By.XPath("//*[starts-with(@id, 'confirmButton')]");
+        public By ConfirmResultTextElement = By.XPath("//*[text()='Cancel' or text()='Ok']");
+        public By PromptElement = By.Id("promtButton");
+
+
+        public IWebElement GetEnteredNameSuccessText(string name)
+        {
+                    return driver.FindElement(By.XPath($"//*[text()= '{name}']"));
+        }
 
         string FirstName
         {
