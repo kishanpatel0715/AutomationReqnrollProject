@@ -21,12 +21,14 @@ namespace AutomationReqnrollProject.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Dynamic_Properties")]
+    [NUnit.Framework.CategoryAttribute("DynamicProperties")]
     public partial class Dynamic_PropertiesFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "DynamicProperties"};
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Dynamic_Properties", "This feature file covers the Dynamic Properties scenarios", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
@@ -88,7 +90,7 @@ namespace AutomationReqnrollProject.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:223459 Verify button gets visible after 5 seconds", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 4
+#line 5
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -98,10 +100,10 @@ namespace AutomationReqnrollProject.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 5
+#line 6
   await testRunner.WhenAsync("user navigates to the Dynamic Properties page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 6
+#line 7
      await testRunner.ThenAsync("after 5 seconds, button is visible", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -115,7 +117,7 @@ namespace AutomationReqnrollProject.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:323459 Verify button gets enabled after 5 seconds", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 8
+#line 9
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -125,10 +127,10 @@ namespace AutomationReqnrollProject.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 9
+#line 10
   await testRunner.WhenAsync("user navigates to the Dynamic Properties page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 10
+#line 11
      await testRunner.ThenAsync("after 5 seconds, button is enabled", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }

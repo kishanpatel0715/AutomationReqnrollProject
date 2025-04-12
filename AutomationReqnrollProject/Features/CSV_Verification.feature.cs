@@ -21,14 +21,14 @@ namespace AutomationReqnrollProject.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("CSV_Verification")]
-    [NUnit.Framework.CategoryAttribute("CSV")]
+    [NUnit.Framework.CategoryAttribute("CSVVerification")]
     public partial class CSV_VerificationFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "CSV"};
+                "CSVVerification"};
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "CSV_Verification", "This feature file is created to verify CSV file data. ", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         

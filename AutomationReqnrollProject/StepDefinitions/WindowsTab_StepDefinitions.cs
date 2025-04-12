@@ -2,6 +2,7 @@
 using AutomationReqnrollProject.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Collections.ObjectModel;
 
 namespace AutomationReqnrollProject.StepDefinitions
 {
@@ -35,6 +36,16 @@ namespace AutomationReqnrollProject.StepDefinitions
         public void WhenUserNavigatesToTheNewlyOpenedTab()
         {
             driver.SwitchTo().Window(driver.WindowHandles.Last());
+
+            /* Extras: If you want to do back and fourth between opened windows or tabs 
+            // ReadOnlyCollection<string> windoHandles = driver.WindowHandles;
+            //string[] windoHandles = driver.WindowHandles.ToArray();
+            List<string> windoHandles = driver.WindowHandles.ToList();
+
+            for (int i=0; i< windoHandles.Count; i++)
+            {
+                driver.SwitchTo().Window(windoHandles[i]);
+            } */
         }
 
         [Then("newly opened tab is displayed with text {string}")]

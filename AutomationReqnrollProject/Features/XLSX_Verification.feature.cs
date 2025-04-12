@@ -21,14 +21,14 @@ namespace AutomationReqnrollProject.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("XLSX_Verification")]
-    [NUnit.Framework.CategoryAttribute("XLSX")]
+    [NUnit.Framework.CategoryAttribute("XLSXVerification")]
     public partial class XLSX_VerificationFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "XLSX"};
+                "XLSXVerification"};
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "XLSX_Verification", "This feature file is created to verify XLSX file data. ", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         

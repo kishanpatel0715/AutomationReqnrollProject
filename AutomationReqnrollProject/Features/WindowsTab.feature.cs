@@ -21,12 +21,14 @@ namespace AutomationReqnrollProject.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("WindowsTab")]
+    [NUnit.Framework.CategoryAttribute("WindowsTab")]
     public partial class WindowsTabFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "WindowsTab"};
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "WindowsTab", "This feature file covers the login scenarios", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
@@ -83,23 +85,21 @@ namespace AutomationReqnrollProject.Features
         
         public virtual async System.Threading.Tasks.Task FeatureBackgroundAsync()
         {
-#line 4
-#line hidden
 #line 5
+#line hidden
+#line 6
  await testRunner.GivenAsync("User is on the Browser Windows page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("TC123789 Verify page is opened up in new tab")]
-        [NUnit.Framework.CategoryAttribute("tag1")]
         public async System.Threading.Tasks.Task TC123789VerifyPageIsOpenedUpInNewTab()
         {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC123789 Verify page is opened up in new tab", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 7
+#line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -109,16 +109,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 4
+#line 5
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 8
+#line 9
  await testRunner.WhenAsync("user clicks on New Tab button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 9
+#line 10
  await testRunner.AndAsync("user navigates to the newly opened tab", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 10
+#line 11
  await testRunner.ThenAsync("newly opened tab is displayed with text \"This is a sample page\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -127,11 +127,9 @@ await this.FeatureBackgroundAsync();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("TC223789 Verify page is opened up in new window")]
-        [NUnit.Framework.CategoryAttribute("tag1")]
         public async System.Threading.Tasks.Task TC223789VerifyPageIsOpenedUpInNewWindow()
         {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC223789 Verify page is opened up in new window", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 13
@@ -144,7 +142,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 4
+#line 5
 await this.FeatureBackgroundAsync();
 #line hidden
 #line 14
@@ -154,7 +152,7 @@ await this.FeatureBackgroundAsync();
  await testRunner.AndAsync("user navigates to the newly opened window", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 16
- await testRunner.ThenAsync("newly opened window is displayed with text \"This is a sample pagee\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("newly opened window is displayed with text \"This is a sample page\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

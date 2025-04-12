@@ -21,12 +21,14 @@ namespace AutomationReqnrollProject.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Alerts")]
+    [NUnit.Framework.CategoryAttribute("Alerts")]
     public partial class AlertsFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "Alerts"};
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Alerts", "This feature file covers the Alert scenarios", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
@@ -88,7 +90,7 @@ namespace AutomationReqnrollProject.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:423459 Verify alert", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 4
+#line 5
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -98,19 +100,19 @@ namespace AutomationReqnrollProject.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 5
+#line 6
   await testRunner.WhenAsync("user navigates to the Alerts, Frame & Windows page page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 6
+#line 7
   await testRunner.AndAsync("user clicks on button to see alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 7
+#line 8
      await testRunner.ThenAsync("alert is displayed with text \"You clicked a button\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 8
+#line 9
   await testRunner.WhenAsync("user accepts the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 9
+#line 10
   await testRunner.ThenAsync("alert is disappeared", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -124,7 +126,7 @@ namespace AutomationReqnrollProject.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:523459 Verify alert appeares after 5 seconds", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 11
+#line 12
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -134,19 +136,19 @@ namespace AutomationReqnrollProject.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 12
+#line 13
   await testRunner.WhenAsync("user navigates to the Alerts, Frame & Windows page page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 13
+#line 14
   await testRunner.AndAsync("user clicks on button to see delayed alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 14
+#line 15
      await testRunner.ThenAsync("delayed alert is displayed with text \"This alert appeared after 5 seconds\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 15
+#line 16
   await testRunner.WhenAsync("user accepts the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 16
+#line 17
   await testRunner.ThenAsync("alert is disappeared", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -160,7 +162,7 @@ namespace AutomationReqnrollProject.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:623459 Verify cancel action for confirm box", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 18
+#line 19
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -170,22 +172,22 @@ namespace AutomationReqnrollProject.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 19
+#line 20
   await testRunner.WhenAsync("user navigates to the Alerts, Frame & Windows page page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 20
+#line 21
   await testRunner.AndAsync("user clicks on button to see confirm box", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 21
+#line 22
   await testRunner.ThenAsync("alert is displayed with text \"Do you confirm action?\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 22
+#line 23
   await testRunner.WhenAsync("user cancels the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 23
+#line 24
   await testRunner.ThenAsync("alert is disappeared", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 24
+#line 25
   await testRunner.AndAsync("\"You selected Cancel\" message is displayed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -199,7 +201,7 @@ namespace AutomationReqnrollProject.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:723459 Verify prompt alert", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 26
+#line 27
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -209,22 +211,22 @@ namespace AutomationReqnrollProject.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 27
+#line 28
   await testRunner.WhenAsync("user navigates to the Alerts, Frame & Windows page page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 28
+#line 29
   await testRunner.AndAsync("user clicks on button to see prompt box", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 29
+#line 30
   await testRunner.ThenAsync("alert is displayed with text \"Please enter your name\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 30
+#line 31
   await testRunner.WhenAsync("user enters the name \"Kishan Patel\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 31
+#line 32
   await testRunner.AndAsync("user accepts the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 32
+#line 33
   await testRunner.ThenAsync("\"You entered Kishan Patel\" message is displayed", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }

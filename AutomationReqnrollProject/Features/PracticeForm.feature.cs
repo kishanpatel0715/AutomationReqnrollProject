@@ -21,12 +21,14 @@ namespace AutomationReqnrollProject.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("PracticeForm")]
+    [NUnit.Framework.CategoryAttribute("PracticeForm")]
     public partial class PracticeFormFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "PracticeForm"};
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "PracticeForm", "This feature file covers the Form scenarios", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
@@ -88,7 +90,7 @@ namespace AutomationReqnrollProject.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:123459 Verify Practice Form submission", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 4
+#line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -98,7 +100,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 5
+#line 6
  await testRunner.WhenAsync("user navigates to the practice form page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
                 global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
@@ -137,13 +139,13 @@ this.ScenarioInitialize(scenarioInfo);
                 table1.AddRow(new string[] {
                             "City",
                             "Panipat"});
-#line 6
+#line 7
  await testRunner.AndAsync("user enters following details:", ((string)(null)), table1, "And ");
 #line hidden
-#line 19
+#line 20
  await testRunner.AndAsync("user submits the form", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 20
+#line 21
  await testRunner.ThenAsync("form is submitted successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
                 global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
@@ -182,7 +184,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table2.AddRow(new string[] {
                             "City",
                             "Panipat"});
-#line 21
+#line 22
  await testRunner.AndAsync("following details are displayed", ((string)(null)), table2, "And ");
 #line hidden
             }
