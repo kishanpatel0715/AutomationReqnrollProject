@@ -1,4 +1,5 @@
-﻿Feature: Dynamic_Properties
+﻿@DynamicProperties
+Feature: Dynamic_Properties
 This feature file covers the Dynamic Properties scenarios
 
 	Scenario: TC:223459 Verify button gets visible after 5 seconds

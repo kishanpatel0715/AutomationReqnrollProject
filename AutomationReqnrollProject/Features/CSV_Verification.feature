@@ -1,4 +1,4 @@
-﻿@CSV
+﻿@CSVVerification
 Feature: CSV_Verification
 This feature file is created to verify CSV file data. 
 

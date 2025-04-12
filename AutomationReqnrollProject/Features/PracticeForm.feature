@@ -1,4 +1,5 @@
-﻿Feature: PracticeForm
+﻿@PracticeForm
+Feature: PracticeForm
 This feature file covers the Form scenarios
 
 Scenario: TC:123459 Verify Practice Form submission

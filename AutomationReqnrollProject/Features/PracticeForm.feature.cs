@@ -28,7 +28,7 @@ namespace AutomationReqnrollProject.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "PracticeForm", "To test Practice Form", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "PracticeForm", "This feature file covers the Form scenarios", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "PracticeForm.feature"
 #line hidden

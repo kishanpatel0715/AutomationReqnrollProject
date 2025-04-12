@@ -1,4 +1,5 @@
-﻿Feature: Alerts
+﻿@Alerts
+Feature: Alerts
 This feature file covers the Alert scenarios
 
 	Scenario: TC:423459 Verify alert

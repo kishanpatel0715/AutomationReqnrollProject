@@ -1,4 +1,4 @@
-﻿@XLSX
+﻿@XLSXVerification
 Feature: XLSX_Verification
 This feature file is created to verify XLSX file data. 
 
