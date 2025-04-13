@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Folder Include="Drivers\" />
+    <Folder Include="Downloads\" />
     <Folder Include="Resources\" />
     <Folder Include="Support\" />
   </ItemGroup>
@@ -34,6 +35,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Resources\ExpectedXLSX.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Uploads\Kohli.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -5,5 +5,7 @@
     <Parameter name="Environment" value="QA" />
 	<Parameter name="BaseUrl" value="https://www.saucedemo.com/" />
     <Parameter name="Headless" value="false" />
+	  <Parameter name="DownloadPath" value = ".\Downloads"/>
+	  <Parameter name="UploadPath" value=".\Uploads" />
   </TestRunParameters>
 </RunSettings>

@@ -9,6 +9,7 @@ namespace AutomationReqnrollProject.Helper
     class Browser
     {
         public static WebDriver? driver;
+        public static string downloadPath = Path.GetFullPath(TestContext.Parameters["DownloadPath"]);
 
         public static WebDriver getDriver(String browser)
         {
@@ -34,8 +35,11 @@ namespace AutomationReqnrollProject.Helper
             chromeOptions.AddArgument("--disable-extensions");
             chromeOptions.AddArgument("--disable-popup-blocking");
             chromeOptions.AddArgument("--disable-gpu");
-            chromeOptions.AddArgument("--incognito");
+            //chromeOptions.AddArgument("--incognito");
             chromeOptions.AddArgument("--no-sandbox");
+
+            chromeOptions.AddUserProfilePreference("download.default_directory", downloadPath);
+            chromeOptions.AddUserProfilePreference("download.prompt_for_download", false);
 
             if (TestContext.Parameters["Headless"] == "true")
             {
@@ -55,8 +59,11 @@ namespace AutomationReqnrollProject.Helper
             edgeOptions.AddArgument("--disable-extensions");
             edgeOptions.AddArgument("--disable-popup-blocking");
             edgeOptions.AddArgument("--disable-gpu");
-            edgeOptions.AddArgument("--incognito");
+            //edgeOptions.AddArgument("--incognito");
             edgeOptions.AddArgument("--no-sandbox");
+
+            edgeOptions.AddUserProfilePreference("download.default_directory", downloadPath);
+            edgeOptions.AddUserProfilePreference("download.prompt_for_download", false);
 
             if (TestContext.Parameters["Headless"] == "true")
             {
