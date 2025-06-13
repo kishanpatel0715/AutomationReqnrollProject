@@ -2,7 +2,7 @@
 {
     class Base_Page
     {
-        public String getFilePath(String fileName)
+        public String GetFilePath(String fileName)
         {
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", fileName);
         }

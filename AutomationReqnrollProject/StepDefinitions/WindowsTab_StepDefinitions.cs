@@ -11,29 +11,27 @@ namespace AutomationReqnrollProject.StepDefinitions
     {
         WebDriver driver;
         WindowsTab_Page windowsTab_Page;
-        CommonMethods commonMethods;
 
         public WindowsTab_StepDefinitions()
         {
             driver = Browser.driver;
             windowsTab_Page = new WindowsTab_Page();
-            commonMethods = new CommonMethods();
         }
 
-        [Given("User is on the Browser Windows page")]
-        public void GivenUserIsOnTheBrowserWindowsPage()
+        [Given("the user selects Browser Windows from sub-menu")]
+        public void GivenTheUserSelectsBrowserWindowsFromSub_Menu()
         {
-            commonMethods.Visit("https://demoqa.com/browser-windows");
+            windowsTab_Page.SelectBrowserWindowsFromSubMenu();
         }
 
-        [When("user clicks on New Tab button")]
-        public void WhenUserClicksOnNewTabButton()
+        [When("the user clicks the New Tab button")]
+        public void WhenTheUserClicksTheNewTabButton()
         {
             windowsTab_Page.OpenNewTab();
         }
 
-        [When("user navigates to the newly opened tab")]
-        public void WhenUserNavigatesToTheNewlyOpenedTab()
+        [When("the user switches to the newly opened tab")]
+        public void WhenTheUserSwitchesToTheNewlyOpenedTab()
         {
             driver.SwitchTo().Window(driver.WindowHandles.Last());
 
@@ -48,28 +46,27 @@ namespace AutomationReqnrollProject.StepDefinitions
             } */
         }
 
-        [Then("newly opened tab is displayed with text {string}")]
-        public void ThenNewlyOpenedTabIsDisplayedWithText(string expectedText)
+        [Then("the new tab is displayed with the text {string}")]
+        public void ThenTheNewTabIsDisplayedWithTheText(string expectedText)
         {
             Assert.AreEqual(expectedText, windowsTab_Page.NewTabText, "Text is incorrect");
         }
 
-        [When("user clicks on New Window button")]
-        public void WhenUserClicksOnNewWindowButton()
+        [When("the user clicks the New Window button")]
+        public void WhenTheUserClicksTheNewWindowButton()
         {
             windowsTab_Page.OpenNewWindow();
         }
 
-        [When("user navigates to the newly opened window")]
-        public void WhenUserNavigatesToTheNewlyOpenedWindow()
+        [When("the user switches to the newly opened window")]
+        public void WhenTheUserSwitchesToTheNewlyOpenedWindow()
         {
             driver.SwitchTo().Window(driver.WindowHandles.Last());
         }
 
-        [Then("newly opened window is displayed with text {string}")]
-        public void ThenNewlyOpenedWindowIsDisplayedWithText(string expectedText)
+        [Then("the new window is displayed with the text {string}")]
+        public void ThenTheNewWindowIsDisplayedWithTheText(string expectedText)
         {
-            Console.WriteLine("Got Actual Text: " + windowsTab_Page.NewWindowText);
             Assert.AreEqual(expectedText, windowsTab_Page.NewWindowText, "Text is incorrect");
         }
     }

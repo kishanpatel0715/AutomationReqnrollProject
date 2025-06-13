@@ -86,21 +86,27 @@ namespace AutomationReqnrollProject.Features
         public virtual async System.Threading.Tasks.Task FeatureBackgroundAsync()
         {
 #line 5
-#line hidden
+  #line hidden
 #line 6
- await testRunner.GivenAsync("User is on the Download and Upload page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+    await testRunner.GivenAsync("the user navigates to DemoQA home page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 7
+    await testRunner.AndAsync("user selects the Elements from menu", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 8
+   await testRunner.AndAsync("user selects Upload and Download from sub-menu", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify Download")]
-        public async System.Threading.Tasks.Task VerifyDownload()
+        [NUnit.Framework.DescriptionAttribute("TC912345 Verify successful file download")]
+        public async System.Threading.Tasks.Task TC912345VerifySuccessfulFileDownload()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Verify Download", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 8
-this.ScenarioInitialize(scenarioInfo);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC912345 Verify successful file download", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 10
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -110,27 +116,29 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 5
-await this.FeatureBackgroundAsync();
+  await this.FeatureBackgroundAsync();
 #line hidden
-#line 9
- await testRunner.WhenAsync("user downloads the file", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 11
+    await testRunner.WhenAsync("the user downloads the file", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 10
- await testRunner.ThenAsync("file is downloaded successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 12
+    await testRunner.ThenAsync("the file is downloaded successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify Upload")]
-        public async System.Threading.Tasks.Task VerifyUpload()
+        [NUnit.Framework.DescriptionAttribute("TC912346 Verify successful file upload")]
+        [NUnit.Framework.CategoryAttribute("test")]
+        public async System.Threading.Tasks.Task TC912346VerifySuccessfulFileUpload()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "test"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Verify Upload", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 12
-this.ScenarioInitialize(scenarioInfo);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC912346 Verify successful file upload", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 15
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -140,13 +148,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 5
-await this.FeatureBackgroundAsync();
+  await this.FeatureBackgroundAsync();
 #line hidden
-#line 13
- await testRunner.WhenAsync("user uploads the file", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 16
+    await testRunner.WhenAsync("the user uploads the file", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 14
- await testRunner.ThenAsync("file is uploaded successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 17
+    await testRunner.ThenAsync("the file is uploaded successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

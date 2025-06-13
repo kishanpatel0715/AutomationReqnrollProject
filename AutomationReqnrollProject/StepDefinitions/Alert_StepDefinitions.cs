@@ -11,45 +11,55 @@ namespace AutomationReqnrollProject.StepDefinitions
     {
         WebDriver driver;
         WaitHelper waitHelper;
-        CommonMethods commonMethods;
         Alerts_Page alerts_Page;
 
         public Alert_StepDefinitions()
         {
             driver = Browser.driver;
             waitHelper = new WaitHelper();
-            commonMethods = new CommonMethods();
             alerts_Page = new Alerts_Page();
         }
 
-        [When("user navigates to the Alerts, Frame & Windows page page")]
-        public void WhenUserNavigatesToTheAlertsFrameWindowsPagePage()
+        [Given("the user navigates to DemoQA home page")]
+        public void GivenTheUserNavigatesToDemoQAHomePage()
         {
-            commonMethods.Visit("https://demoqa.com/alerts");
+            driver.Navigate().GoToUrl(TestContext.Parameters["BaseUrlDemoQa"]);
         }
 
-        [When("user clicks on button to see alert")]
-        public void WhenUserClicksOnButtonToSeeAlert()
+        [Given("the user selects the Alerts, Frame & Windows from the menu")]
+        public void GivenTheUserSelectsTheAlertsFrameWindowsFromTheMenu()
         {
-            alerts_Page.openAlert();
+            alerts_Page.SelectAlertsFrameWindowsFromMenu();
         }
 
-        [Then("alert is displayed with text {string}")]
-        public void ThenAlertIsDisplayedWithText(string alertExpectedText)
+        [Given("the user selects Alerts from the sub-menu")]
+        public void GivenTheUserSelectsAlertsFromTheSub_Menu()
         {
-            IAlert alert = driver.SwitchTo().Alert();
-            Assert.AreEqual(alertExpectedText, alert.Text, "Alert Text is incorrect");
+            alerts_Page.SelectAlertsFromSubMenu();
         }
 
-        [When("user accepts the alert")]
-        public void WhenUserAcceptsTheAlert()
+        [When("the user opens the regular alert")]
+        public void WhenTheUserOpensTheRegularAlert()
+        {
+            alerts_Page.OpenAlert();
+        }
+
+        [When("the user accepts the alert")]
+        public void WhenTheUserAcceptsTheAlert()
         {
             IAlert alert = driver.SwitchTo().Alert();
             alert.Accept();
         }
 
-        [Then("alert is disappeared")]
-        public void ThenAlertIsDisappeared()
+        [Then("an alert is displayed with the text {string}")]
+        public void ThenAnAlertIsDisplayedWithTheText(string alertExpectedText)
+        {
+            IAlert alert = driver.SwitchTo().Alert();
+            Assert.AreEqual(alertExpectedText, alert.Text, "Alert Text is incorrect");
+        }
+
+        [Then("the alert is no longer visible")]
+        public void ThenTheAlertIsNoLongerVisible()
         {
             Assert.True(driver.FindElement(alerts_Page.AlertElement).Displayed, "Alert is still present");
         }
@@ -57,25 +67,31 @@ namespace AutomationReqnrollProject.StepDefinitions
         [When("user clicks on button to see delayed alert")]
         public void WhenUserClicksOnButtonToSeeDelayedAlert()
         {
-            alerts_Page.openDelayedAlert();
+            alerts_Page.OpenDelayedAlert();
         }
 
-        [Then("delayed alert is displayed with text {string}")]
-        public void ThenDelayedAlertIsDisplayedWithText(string alertExpectedText)
+
+        [When("the user opens the delayed alert")]
+        public void WhenTheUserOpensTheDelayedAlert()
+        {
+            alerts_Page.OpenDelayedAlert();
+        }
+
+        [Then("delayed alert is displayed with the text {string}")]
+        public void ThenDelayedAlertIsDisplayedWithTheText(string alertExpectedText)
         {
             waitHelper.WaitForAlert(5);
         }
 
-        [When("user clicks on button to see confirm box")]
-        public void WhenUserClicksOnButtonToSeeConfirmBox()
+        [When("the user opens the confirm box")]
+        public void WhenTheUserOpensTheConfirmBox()
         {
-            alerts_Page.openConfirmBoxPopUp();
+            alerts_Page.OpenConfirmBoxPopUp();
         }
 
-        [When("user cancels the alert")]
-        public void WhenUserCancelsTheAlert()
+        [When("the user cancels the alert")]
+        public void WhenTheUserCancelsTheAlert()
         {
-            //driver.SwitchTo().Alert().Dismiss();
             waitHelper.WaitForAlert(3).Dismiss();
         }
 
@@ -96,18 +112,18 @@ namespace AutomationReqnrollProject.StepDefinitions
             Assert.AreEqual(expectedMessage, actualMessage, "Incorrect message is displayed");
         }
 
-        [When("user clicks on button to see prompt box")]
-        public void WhenUserClicksOnButtonToSeePromptBox()
+        [When("the user opens the prompt box")]
+        public void WhenTheUserOpensThePromptBox()
         {
-            alerts_Page.openPromptBoxPopUp();
+            alerts_Page.OpenPromptBoxPopUp();
         }
 
-        [When("user enters the name {string}")]
-        public void WhenUserEntersTheName(string name)
+        [When("the user enters the name {string}")]
+        public void WhenTheUserEntersTheName(string name)
         {
             AlertContext.name = name;
             IAlert alert = driver.SwitchTo().Alert();
             alert.SendKeys(name);
-        }
+        }           
     }
 }

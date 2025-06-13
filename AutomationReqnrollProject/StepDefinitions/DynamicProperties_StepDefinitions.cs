@@ -9,22 +9,21 @@ namespace AutomationReqnrollProject.StepDefinitions
     class DynamicProperties_StepDefinitions
     {
         WebDriver driver;
-        CommonMethods commonMethods;
         WaitHelper waitHelper;
         DynamicProperties_Page dynamicProperties_Page;
 
         public DynamicProperties_StepDefinitions()
         {
             driver = Browser.driver;
-            commonMethods = new CommonMethods();
             waitHelper = new WaitHelper();
             dynamicProperties_Page = new DynamicProperties_Page();
         }
 
-        [When("user navigates to the Dynamic Properties page")]
-        public void WhenUserNavigatesToTheDynamicPropertiesPage()
+        [Given("user selects Dynamic Properties from sub-menu")]
+        public void GivenUserSelectsDynamicPropertiesFromSub_Menu()
         {
-            commonMethods.Visit("https://demoqa.com/dynamic-properties");
+            ScrollHelper.ScrollToTheElement(dynamicProperties_Page.DynamicPropertiesSubmenuElement);
+            dynamicProperties_Page.SelectDynamicPropertiesFromSubMenu();
         }
 
         [Then("after {int} seconds, button is visible")]

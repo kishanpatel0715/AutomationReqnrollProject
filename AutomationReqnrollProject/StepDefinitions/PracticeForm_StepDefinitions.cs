@@ -13,38 +13,43 @@ namespace AutomationReqnrollProject.StepDefinitions
         WebDriver driver;
         PracticeForm_Page practiceForm_Page;
         WaitHelper waitHelper;
-        CommonMethods commonMethods;
 
         public PracticeForm_StepDefinitions()
         {
             driver = Browser.driver;
             practiceForm_Page = new PracticeForm_Page();
             waitHelper = new WaitHelper();
-            commonMethods = new CommonMethods();
         }
 
-        [When("user navigates to the practice form page")]
-        public void WhenUserNavigatesToThePracticeFormPage()
+        [Given("the user selects the Forms from menu")]
+        public void GivenTheUserSelectsTheFormsFromMenu()
         {
-            driver.Navigate().GoToUrl("https://demoqa.com/automation-practice-form");
+            practiceForm_Page.SelectFormsFromMenu();
         }
 
-        [When("user enters following details:")]
-        public void WhenUserEntersFollowingDetails(DataTable dataTable)
+        [When("the user selects Practice Form from the sub-menu")]
+        public void WhenTheUserSelectsPracticeFormFromTheSub_Menu()
+        {
+            practiceForm_Page.SelectPracticeFormFromSubMenu();
+        }
+
+
+        [When("the user enters following details:")]
+        public void WhenTheUserEntersFollowingDetails(DataTable dataTable)
         {
             var input = dataTable.CreateInstance<PracticeFormUIModel>();
 
             practiceForm_Page.EnterPracticeFormData(input);
         }
 
-        [When("user submits the form")]
-        public void WhenUserSubmitsTheForm()
+        [When("the user submits the form")]
+        public void WhenTheUserSubmitsTheForm()
         {
-            practiceForm_Page.submitForm();
+            practiceForm_Page.SubmitForm();
         }
 
-        [Then("form is submitted successfully")]
-        public void ThenFormIsSubmittedSuccessfully()
+        [Then("the form is submitted successfully")]
+        public void ThenTheFormIsSubmittedSuccessfully()
         {
             bool IsSuccessMessageIsDisplayed;
 
@@ -61,8 +66,8 @@ namespace AutomationReqnrollProject.StepDefinitions
             Assert.True(IsSuccessMessageIsDisplayed, "Form submission is failed");
         }
 
-        [Then("following details are displayed")]
-        public void ThenFollowingDetailsAreDisplayed(DataTable dataTable)
+        [Then("the following details are displayed:")]
+        public void ThenTheFollowingDetailsAreDisplayed(DataTable dataTable)
         {
             var input = dataTable.CreateInstance<PracticeFormUIModel>();
 

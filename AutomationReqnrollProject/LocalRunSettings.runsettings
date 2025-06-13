@@ -3,9 +3,10 @@
   <TestRunParameters>
     <Parameter name="Browser" value="chrome" />
     <Parameter name="Environment" value="QA" />
-	<Parameter name="BaseUrl" value="https://www.saucedemo.com/" />
+	<Parameter name="BaseUrlSauceDemo" value="https://www.saucedemo.com/" />
+	<Parameter name="BaseUrlDemoQa" value="https://demoqa.com/" />
     <Parameter name="Headless" value="false" />
-	  <Parameter name="DownloadPath" value = ".\Downloads"/>
-	  <Parameter name="UploadPath" value=".\Uploads" />
+	<Parameter name="DownloadPath" value = ".\Downloads"/>
+	<Parameter name="UploadPath" value=".\Uploads" />
   </TestRunParameters>
 </RunSettings>

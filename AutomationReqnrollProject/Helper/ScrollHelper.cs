@@ -4,12 +4,8 @@ namespace AutomationReqnrollProject.Helper
 {
     class ScrollHelper
     {
-        WebDriver driver;
-        public ScrollHelper()
-        {
-            driver = Browser.driver;
-        }
-        public void scrollToTheElement(By element)
+        static WebDriver driver = Browser.driver;
+        public static void ScrollToTheElement(By element)
         {
             driver.ExecuteScript("arguments[0].scrollIntoView(true);", driver.FindElement(element));
         }

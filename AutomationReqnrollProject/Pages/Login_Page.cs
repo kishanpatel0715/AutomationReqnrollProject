@@ -26,18 +26,18 @@ namespace AutomationReqnrollProject.Pages
             driver.FindElement(PasswordElement).SendKeys(password);          
         }
 
-        public void login()
+        public void Login()
         {
             driver.FindElement(LoginElement).Click();
         }
 
-        public void opensMenu()
+        public void OpensMenu()
 
         {
             driver.FindElement(SideMenuElement).Click();
         }
 
-        public void logout()
+        public void Logout()
         {
             new WaitHelper().WaitForElementToBeVisible(LogoutElement, 5);
             driver.FindElement(LogoutElement).Click();

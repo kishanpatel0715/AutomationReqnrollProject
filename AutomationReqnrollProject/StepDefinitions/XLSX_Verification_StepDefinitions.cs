@@ -16,8 +16,8 @@ namespace AutomationReqnrollProject.StepDefinitions
         [Then("data of {string} xlsx file is matched with {string} xlsx file data")]
         public void ThenDataOfXlsxFileIsMatchedWithXlsxFileData(string actualFile, string expectedFile)
         {
-            String actualFilePath = base_Page.getFilePath(actualFile);
-            String expectedFilePath = base_Page.getFilePath(expectedFile);
+            String actualFilePath = base_Page.GetFilePath(actualFile);
+            String expectedFilePath = base_Page.GetFilePath(expectedFile);
 
             ExcelWorkbook actualWorkBook = new ExcelPackage(new FileInfo(actualFilePath)).Workbook;
             ExcelWorkbook expectedWorkBook = new ExcelPackage(new FileInfo(expectedFilePath)).Workbook;

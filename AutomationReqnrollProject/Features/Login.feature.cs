@@ -86,21 +86,21 @@ namespace AutomationReqnrollProject.Features
         public virtual async System.Threading.Tasks.Task FeatureBackgroundAsync()
         {
 #line 5
- #line hidden
+  #line hidden
 #line 6
-  await testRunner.GivenAsync("User is on the login page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+    await testRunner.GivenAsync("User is on the login page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TC:123456 Verify Successful Login with Valid Credentials")]
+        [NUnit.Framework.DescriptionAttribute("TC123456 Verify Successful Login with Valid Credentials")]
         public async System.Threading.Tasks.Task TC123456VerifySuccessfulLoginWithValidCredentials()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:123456 Verify Successful Login with Valid Credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC123456 Verify Successful Login with Valid Credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
-this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -110,23 +110,23 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 5
- await this.FeatureBackgroundAsync();
+  await this.FeatureBackgroundAsync();
 #line hidden
 #line 9
- await testRunner.WhenAsync("user enters \"standard_user\" and \"secret_sauce\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync("user enters \"standard_user\" and \"secret_sauce\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 10
     await testRunner.AndAsync("user login", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 11
- await testRunner.ThenAsync("user is logged-in successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync("user is logged-in successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TC:123457 Verify Login With Invalid Credentials")]
+        [NUnit.Framework.DescriptionAttribute("TC123457 Verify Login With Invalid Credentials")]
         [NUnit.Framework.TestCaseAttribute("Kishan", "Patel", null)]
         [NUnit.Framework.TestCaseAttribute("CV", "Patel", null)]
         public async System.Threading.Tasks.Task TC123457VerifyLoginWithInvalidCredentials(string user_Name, string password, string[] exampleTags)
@@ -135,9 +135,9 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("User_Name", user_Name);
             argumentsOfScenario.Add("Password", password);
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:123457 Verify Login With Invalid Credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC123457 Verify Login With Invalid Credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 13
-this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -147,30 +147,30 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 5
- await this.FeatureBackgroundAsync();
+  await this.FeatureBackgroundAsync();
 #line hidden
 #line 14
- await testRunner.WhenAsync(string.Format("user enters invalid {0} and {1}", user_Name, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync(string.Format("user enters invalid {0} and {1}", user_Name, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 15
     await testRunner.AndAsync("user login", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 16
- await testRunner.ThenAsync("error message is displayed", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync("error message is displayed", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TC:123458 Verify Successful Log-Out")]
+        [NUnit.Framework.DescriptionAttribute("TC123458 Verify Successful Log-Out")]
         public async System.Threading.Tasks.Task TC123458VerifySuccessfulLog_Out()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:123458 Verify Successful Log-Out", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC123458 Verify Successful Log-Out", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 23
-this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -180,25 +180,25 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 5
- await this.FeatureBackgroundAsync();
+  await this.FeatureBackgroundAsync();
 #line hidden
 #line 24
- await testRunner.WhenAsync("user enters \"standard_user\" and \"secret_sauce\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync("user enters \"standard_user\" and \"secret_sauce\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 25
     await testRunner.AndAsync("user login", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 26
- await testRunner.ThenAsync("user is logged-in successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync("user is logged-in successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 27
- await testRunner.WhenAsync("user opens side-menu", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync("user opens side-menu", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 28
- await testRunner.AndAsync("user logout", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+    await testRunner.AndAsync("user logout", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 29
- await testRunner.ThenAsync("user is logged-out", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync("user is logged-out", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

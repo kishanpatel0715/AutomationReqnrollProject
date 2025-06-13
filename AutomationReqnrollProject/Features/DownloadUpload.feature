@@ -2,13 +2,16 @@
 Feature: DownloadUpload
 This feature file covers the Download and Upload scenarios
 
-Background:
-	Given User is on the Download and Upload page
+  Background: 
+    Given the user navigates to DemoQA home page
+    And user selects the Elements from menu
+  	And user selects Upload and Download from sub-menu  
 
-Scenario: Verify Download
-	When user downloads the file
-	Then file is downloaded successfully
-
-Scenario: Verify Upload
-	When user uploads the file
-	Then file is uploaded successfully
+  Scenario: TC912345 Verify successful file download
+    When the user downloads the file
+    Then the file is downloaded successfully
+    
+  @test
+  Scenario: TC912346 Verify successful file upload
+    When the user uploads the file
+    Then the file is uploaded successfully

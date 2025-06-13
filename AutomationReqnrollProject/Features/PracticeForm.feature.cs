@@ -83,15 +83,27 @@ namespace AutomationReqnrollProject.Features
             await testRunner.CollectScenarioErrorsAsync();
         }
         
+        public virtual async System.Threading.Tasks.Task FeatureBackgroundAsync()
+        {
+#line 5
+#line hidden
+#line 6
+ await testRunner.GivenAsync("the user navigates to DemoQA home page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 7
+ await testRunner.AndAsync("the user selects the Forms from menu", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TC:123459 Verify Practice Form submission")]
-        public async System.Threading.Tasks.Task TC123459VerifyPracticeFormSubmission()
+        [NUnit.Framework.DescriptionAttribute("TC123459 Verify successful Practice Form submission")]
+        public async System.Threading.Tasks.Task TC123459VerifySuccessfulPracticeFormSubmission()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:123459 Verify Practice Form submission", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 5
-this.ScenarioInitialize(scenarioInfo);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC123459 Verify successful Practice Form submission", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 9
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -100,8 +112,11 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 6
- await testRunner.WhenAsync("user navigates to the practice form page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 5
+await this.FeatureBackgroundAsync();
+#line hidden
+#line 10
+    await testRunner.WhenAsync("the user selects Practice Form from the sub-menu", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
                 global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
                             "Field",
@@ -139,14 +154,14 @@ this.ScenarioInitialize(scenarioInfo);
                 table1.AddRow(new string[] {
                             "City",
                             "Panipat"});
-#line 7
- await testRunner.AndAsync("user enters following details:", ((string)(null)), table1, "And ");
+#line 11
+    await testRunner.AndAsync("the user enters following details:", ((string)(null)), table1, "And ");
 #line hidden
-#line 20
- await testRunner.AndAsync("user submits the form", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 24
+    await testRunner.AndAsync("the user submits the form", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 21
- await testRunner.ThenAsync("form is submitted successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 25
+    await testRunner.ThenAsync("the form is submitted successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
                 global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
                             "Field",
@@ -184,8 +199,8 @@ this.ScenarioInitialize(scenarioInfo);
                 table2.AddRow(new string[] {
                             "City",
                             "Panipat"});
-#line 22
- await testRunner.AndAsync("following details are displayed", ((string)(null)), table2, "And ");
+#line 26
+    await testRunner.AndAsync("the following details are displayed:", ((string)(null)), table2, "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

@@ -83,51 +83,30 @@ namespace AutomationReqnrollProject.Features
             await testRunner.CollectScenarioErrorsAsync();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TC:423459 Verify alert")]
-        public async System.Threading.Tasks.Task TC423459VerifyAlert()
+        public virtual async System.Threading.Tasks.Task FeatureBackgroundAsync()
         {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:423459 Verify alert", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
- this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
+  #line hidden
 #line 6
-  await testRunner.WhenAsync("user navigates to the Alerts, Frame & Windows page page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.GivenAsync("the user navigates to DemoQA home page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 7
-  await testRunner.AndAsync("user clicks on button to see alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+    await testRunner.AndAsync("the user selects the Alerts, Frame & Windows from the menu", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 8
-     await testRunner.ThenAsync("alert is displayed with text \"You clicked a button\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.AndAsync("the user selects Alerts from the sub-menu", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 9
-  await testRunner.WhenAsync("user accepts the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 10
-  await testRunner.ThenAsync("alert is disappeared", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TC:523459 Verify alert appeares after 5 seconds")]
-        public async System.Threading.Tasks.Task TC523459VerifyAlertAppearesAfter5Seconds()
+        [NUnit.Framework.DescriptionAttribute("TC423459 Verify alert text for \"Click Button to see alert\" alert")]
+        public async System.Threading.Tasks.Task TC423459VerifyAlertTextForClickButtonToSeeAlertAlert()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:523459 Verify alert appeares after 5 seconds", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 12
- this.ScenarioInitialize(scenarioInfo);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC423459 Verify alert text for \"Click Button to see alert\" alert", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 10
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -136,34 +115,70 @@ namespace AutomationReqnrollProject.Features
             else
             {
                 await this.ScenarioStartAsync();
+#line 5
+  await this.FeatureBackgroundAsync();
+#line hidden
+#line 11
+    await testRunner.WhenAsync("the user opens the regular alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 12
+    await testRunner.ThenAsync("an alert is displayed with the text \"You clicked a button\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
 #line 13
-  await testRunner.WhenAsync("user navigates to the Alerts, Frame & Windows page page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync("the user accepts the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 14
-  await testRunner.AndAsync("user clicks on button to see delayed alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 15
-     await testRunner.ThenAsync("delayed alert is displayed with text \"This alert appeared after 5 seconds\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 16
-  await testRunner.WhenAsync("user accepts the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 17
-  await testRunner.ThenAsync("alert is disappeared", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync("the alert is no longer visible", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TC:623459 Verify cancel action for confirm box")]
+        [NUnit.Framework.DescriptionAttribute("TC523459 Verify alert text when it appeares after 5 seconds")]
+        public async System.Threading.Tasks.Task TC523459VerifyAlertTextWhenItAppearesAfter5Seconds()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC523459 Verify alert text when it appeares after 5 seconds", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 16
+  this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 5
+  await this.FeatureBackgroundAsync();
+#line hidden
+#line 17
+    await testRunner.WhenAsync("the user opens the delayed alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 18
+    await testRunner.ThenAsync("delayed alert is displayed with the text \"This alert appeared after 5 seconds\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 19
+    await testRunner.WhenAsync("the user accepts the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 20
+    await testRunner.ThenAsync("the alert is no longer visible", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("TC623459 Verify cancel action for confirm box")]
         public async System.Threading.Tasks.Task TC623459VerifyCancelActionForConfirmBox()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:623459 Verify cancel action for confirm box", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 19
- this.ScenarioInitialize(scenarioInfo);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC623459 Verify cancel action for confirm box", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 22
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -172,37 +187,37 @@ namespace AutomationReqnrollProject.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 20
-  await testRunner.WhenAsync("user navigates to the Alerts, Frame & Windows page page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 21
-  await testRunner.AndAsync("user clicks on button to see confirm box", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 22
-  await testRunner.ThenAsync("alert is displayed with text \"Do you confirm action?\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 5
+  await this.FeatureBackgroundAsync();
 #line hidden
 #line 23
-  await testRunner.WhenAsync("user cancels the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync("the user opens the confirm box", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 24
-  await testRunner.ThenAsync("alert is disappeared", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync("an alert is displayed with the text \"Do you confirm action?\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 25
-  await testRunner.AndAsync("\"You selected Cancel\" message is displayed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+    await testRunner.WhenAsync("the user cancels the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 26
+    await testRunner.ThenAsync("the alert is no longer visible", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 27
+    await testRunner.AndAsync("\"You selected Cancel\" message is displayed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TC:723459 Verify prompt alert")]
-        public async System.Threading.Tasks.Task TC723459VerifyPromptAlert()
+        [NUnit.Framework.DescriptionAttribute("TC723459 Verify prompt")]
+        public async System.Threading.Tasks.Task TC723459VerifyPrompt()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC:723459 Verify prompt alert", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 27
- this.ScenarioInitialize(scenarioInfo);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC723459 Verify prompt", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 29
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -211,23 +226,23 @@ namespace AutomationReqnrollProject.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 28
-  await testRunner.WhenAsync("user navigates to the Alerts, Frame & Windows page page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 29
-  await testRunner.AndAsync("user clicks on button to see prompt box", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 5
+  await this.FeatureBackgroundAsync();
 #line hidden
 #line 30
-  await testRunner.ThenAsync("alert is displayed with text \"Please enter your name\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.WhenAsync("the user opens the prompt box", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 31
-  await testRunner.WhenAsync("user enters the name \"Kishan Patel\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.ThenAsync("an alert is displayed with the text \"Please enter your name\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 32
-  await testRunner.AndAsync("user accepts the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+    await testRunner.WhenAsync("the user enters the name \"Kishan Patel\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 33
-  await testRunner.ThenAsync("\"You entered Kishan Patel\" message is displayed", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.AndAsync("the user accepts the alert", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 34
+    await testRunner.ThenAsync("\"You entered Kishan Patel\" message is displayed", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

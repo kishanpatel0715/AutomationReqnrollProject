@@ -6,12 +6,10 @@ namespace AutomationReqnrollProject.Pages
     class Alerts_Page
     {
         WebDriver driver;
-        CommonMethods commonMethods;
 
         public Alerts_Page()
         {
             driver = Browser.driver;
-            commonMethods = new CommonMethods();
         }
 
         public By AlertElement = By.Id("alertButton");
@@ -19,30 +17,41 @@ namespace AutomationReqnrollProject.Pages
         public By ConfirmBoxElement = By.XPath("//*[starts-with(@id, 'confirmButton')]");
         public By ConfirmResultTextElement = By.XPath("//*[text()='Cancel' or text()='Ok']");
         public By PromptElement = By.Id("promtButton");
+        public By AlertsFrameWindowsMenuElement = By.XPath("//*[text()='Alerts, Frame & Windows']");
+        public By AlertsSubmenuElement = By.XPath("/html/body/div[2]/div/div/div/div[1]/div/div/div[3]/div/ul/li[2]/span");
 
+        public void SelectAlertsFrameWindowsFromMenu()
+        {
+            driver.FindElement(AlertsFrameWindowsMenuElement).Click();
+        }
+
+        public void SelectAlertsFromSubMenu()
+        {
+            driver.FindElement(AlertsSubmenuElement).Click();
+        }
         public IWebElement GetEnteredNameSuccessText(string name)
         {
             return driver.FindElement(By.XPath($"//*[text()= '{name}']"));
         }
 
-        public void openAlert()
+        public void OpenAlert()
         {
-            commonMethods.Click(AlertElement);
+           driver.FindElement(AlertElement).Click();
         }
 
-        public void openDelayedAlert()
+        public void OpenDelayedAlert()
         {
-            commonMethods.Click(DelayedAlertElement);
+            driver.FindElement(DelayedAlertElement).Click();
         }
 
-        public void openConfirmBoxPopUp()
+        public void OpenConfirmBoxPopUp()
         {
-            commonMethods.Click(ConfirmBoxElement);
+            driver.FindElement(ConfirmBoxElement).Click();
         }
 
-        public void openPromptBoxPopUp()
+        public void OpenPromptBoxPopUp()
         {
-            commonMethods.Click(PromptElement);
+            driver.FindElement(PromptElement).Click();
         }
     }
 }

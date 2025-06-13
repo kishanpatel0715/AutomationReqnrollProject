@@ -4,7 +4,7 @@ namespace AutomationReqnrollProject.Helper
 {
     class DownloadHelper
     {
-        public static  void WaitForDownload(string fileName)
+        public static void WaitForDownload(string fileName)
         {
             var fullDowlnloadedFilePath = Path.Combine(Path.GetFullPath(TestContext.Parameters["DownloadPath"]), fileName);
 

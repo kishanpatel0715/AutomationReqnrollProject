@@ -15,8 +15,8 @@ namespace AutomationReqnrollProject.StepDefinitions
         [Then("data of {string} file is matched with {string} file data")]
         public void ThenDataOfFileIsMatchedWithFileData(string actualCSV, string expectedCSV)
         {
-            String actualFilePath = base_Page.getFilePath(actualCSV);
-            String expectedFilePath = base_Page.getFilePath(expectedCSV);
+            String actualFilePath = base_Page.GetFilePath(actualCSV);
+            String expectedFilePath = base_Page.GetFilePath(expectedCSV);
 
             String[] actualLinesData = File.ReadAllLines(actualFilePath);
             String[] expectedLinesData = File.ReadAllLines(expectedFilePath);

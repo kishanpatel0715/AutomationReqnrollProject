@@ -12,7 +12,7 @@ namespace AutomationReqnrollProject
         ScenarioContext _scenarioContext;
         public Hooks(ScenarioContext scenarioContext)
         {
-            this.driver = Browser.getDriver(TestContext.Parameters["Browser"]);
+            this.driver = Browser.GetDriver(TestContext.Parameters["Browser"]);
             _scenarioContext = scenarioContext;
         } 
 

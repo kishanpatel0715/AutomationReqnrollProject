@@ -11,18 +11,17 @@ namespace AutomationReqnrollProject.StepDefinitions
         // For additional details on Reqnroll step definitions see https://go.reqnroll.net/doc-stepdef
         WebDriver driver;
         Login_Page loginPage;
-        CommonMethods commonMethods;
+
         public Login_StepDefinitions()
         {            
             driver = Browser.driver;
             loginPage = new Login_Page();
-            commonMethods = new CommonMethods();
         }
 
         [Given("User is on the login page")]
         public void GivenUserIsOnTheLoginPage()
         {
-            commonMethods.Visit(TestContext.Parameters["BaseUrl"]);
+            driver.Navigate().GoToUrl(TestContext.Parameters["BaseUrlSauceDemo"]);
         }
 
         [When("user enters {string} and {string}")]
@@ -34,7 +33,7 @@ namespace AutomationReqnrollProject.StepDefinitions
         [When("user login")]
         public void WhenUserLogin()
         {
-            loginPage.login();
+            loginPage.Login();
         }
 
         [Then("user is logged-in successfully")]
@@ -63,13 +62,13 @@ namespace AutomationReqnrollProject.StepDefinitions
         [When("user opens side-menu")]
         public void WhenUserOpensSideMenu()
         {
-            loginPage.opensMenu();
+            loginPage.OpensMenu();
         }
 
         [When("user logout")]
         public void WhenUserLogout()
         {
-            loginPage.logout();
+            loginPage.Logout();
         }
 
         [Then("error message is displayed")]

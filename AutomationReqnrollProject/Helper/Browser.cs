@@ -11,23 +11,23 @@ namespace AutomationReqnrollProject.Helper
         public static WebDriver? driver;
         public static string downloadPath = Path.GetFullPath(TestContext.Parameters["DownloadPath"]);
 
-        public static WebDriver getDriver(String browser)
+        public static WebDriver GetDriver(String browser)
         {
 
             switch (browser.ToLower())
             {
                 case "chrome":
-                    return getChromeDriver();
+                    return GetChromeDriver();
 
                 case "edge":
-                    return getEdgeDriver();
+                    return GetEdgeDriver();
 
                 default:
-                    return getFireFoxDriver();
+                    return GetFireFoxDriver();
             }
         }
 
-        public static WebDriver getChromeDriver()
+        public static WebDriver GetChromeDriver()
         {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("start-maximized");
@@ -51,7 +51,7 @@ namespace AutomationReqnrollProject.Helper
             return driver;
         }
 
-        public static WebDriver getEdgeDriver()
+        public static WebDriver GetEdgeDriver()
         {
             EdgeOptions edgeOptions = new EdgeOptions();
             edgeOptions.AddArgument("--start-maximized");
@@ -76,7 +76,7 @@ namespace AutomationReqnrollProject.Helper
             return driver;
         }
 
-        public static WebDriver getFireFoxDriver()
+        public static WebDriver GetFireFoxDriver()
         {
             FirefoxOptions fireFoxOptions = new FirefoxOptions();
             fireFoxOptions.AddArgument("--start-maximized");

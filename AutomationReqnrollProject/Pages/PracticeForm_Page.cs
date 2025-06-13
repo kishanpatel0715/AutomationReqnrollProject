@@ -25,7 +25,19 @@ namespace AutomationReqnrollProject.Pages
         public By StateElement = By.Id("state");
         public By CityElement = By.Id("city");
         public By SubmitElement = By.Id("submit");
-        
+        public By FormsMenuElement = By.XPath("//*[text()='Forms']");
+        public By PracticeFormSubmenuElement = By.XPath("/html/body/div[2]/div/div/div/div[1]/div/div/div[2]/div/ul/li/span");
+
+        public void SelectFormsFromMenu()
+        {
+            driver.FindElement(FormsMenuElement).Click();
+        }
+
+        public void SelectPracticeFormFromSubMenu()
+        {
+            driver.FindElement(PracticeFormSubmenuElement).Click();
+        }
+
         string FirstName
         {
             set => formHelper.EnterFormFieldData(FirstNameElement, value);
@@ -55,7 +67,7 @@ namespace AutomationReqnrollProject.Pages
         {
             set
             {
-                new ScrollHelper().scrollToTheElement(SubjectsElement);
+                ScrollHelper.ScrollToTheElement(SubjectsElement);
                 formHelper.EnterFormFieldData(SubjectsElement, value);
             }
         }
@@ -100,7 +112,7 @@ namespace AutomationReqnrollProject.Pages
             City = model.City;
         }
 
-        public void submitForm()
+        public void SubmitForm()
         {
             driver.FindElement(SubmitElement).Click();
         }

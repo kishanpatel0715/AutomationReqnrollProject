@@ -16,7 +16,12 @@ namespace AutomationReqnrollProject.Pages
         public By NewTabTextElement = By.Id("sampleHeading");
         public By NewWindowElement = By.Id("windowButton");
         public By NewWindowTextElement = By.Id("sampleHeading");
+        public By BrowserWindowsSubmenuElement = By.XPath("/html/body/div[2]/div/div/div/div[1]/div/div/div[3]/div/ul/li[1]/span");
 
+        public void SelectBrowserWindowsFromSubMenu()
+        {
+            driver.FindElement(BrowserWindowsSubmenuElement).Click();
+        }
         public void OpenNewTab()
         {
             driver.FindElement(NewTabElement).Click();

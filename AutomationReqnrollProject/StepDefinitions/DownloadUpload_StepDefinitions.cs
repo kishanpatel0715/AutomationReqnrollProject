@@ -9,44 +9,48 @@ namespace AutomationReqnrollProject.StepDefinitions
     public class DownloadUpload_StepDefinitions
     {
         WebDriver driver;
-        CommonMethods commonMethods;
         DownloadUpload_Page downloadUpload_Page;
 
         public DownloadUpload_StepDefinitions()
         {
             driver = Browser.driver;
-            commonMethods = new CommonMethods();
             downloadUpload_Page = new DownloadUpload_Page();
         }
 
-        [Given("User is on the Download and Upload page")]
-        public void GivenUserIsOnTheDownloadAndUploadPage()
+        [Given("user selects the Elements from menu")]
+        public void GivenUserSelectsTheElementsFromMenu()
         {
-            commonMethods.Visit("https://demoqa.com/upload-download");
+            downloadUpload_Page.SelectElementsFromMenu();
         }
 
-        [When("user downloads the file")]
-        public void WhenUserDownloadsTheFile()
+        [Given("user selects Upload and Download from sub-menu")]
+        public void GivenUserSelectsUploadAndDownloadFromSub_Menu()
+        {
+            downloadUpload_Page.SelectDownloadAndUploadFromSubMenu();
+        }
+
+        [When("the user downloads the file")]
+        public void WhenTheUserDownloadsTheFile()
         {
             downloadUpload_Page.Download();
         }
 
-        [Then("file is downloaded successfully")]
-        public void ThenFileIsDownloadedSuccessfully()
+        [Then("the file is downloaded successfully")]
+        public void ThenTheFileIsDownloadedSuccessfully()
         {
-            bool isFileExist = File.Exists(Path.Combine(Path.GetFullPath(TestContext.Parameters["DownloadPath"]),"sampleFile.jpeg"));
+            bool isFileExist = File.Exists(Path.Combine(Path.GetFullPath(TestContext.Parameters["DownloadPath"]), "sampleFile.jpeg"));
 
             Assert.True(isFileExist, "File is not downloaded");
         }
 
-        [When("user uploads the file")]
-        public void WhenUserUploadsTheFile()
+        [When("the user uploads the file")]
+        public void WhenTheUserUploadsTheFile()
         {
             downloadUpload_Page.Upload();
         }
 
-        [Then("file is uploaded successfully")]
-        public void ThenFileIsUploadedSuccessfully()
+        [Then("the file is uploaded successfully")]
+        public void ThenTheFileIsUploadedSuccessfully()
         {
             Assert.That(downloadUpload_Page.UploadedFileName.Contains("Kohli.png"), "File is not uploaded");
         }
