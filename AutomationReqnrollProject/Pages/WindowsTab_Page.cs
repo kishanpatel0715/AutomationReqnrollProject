@@ -9,7 +9,7 @@ namespace AutomationReqnrollProject.Pages
 
         public WindowsTab_Page()
         {
-            driver = Browser.driver;
+            driver = Browser.GetDriver();
         }
 
         public By NewTabElement = By.Id("tabButton");

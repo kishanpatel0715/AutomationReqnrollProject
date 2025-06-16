@@ -8,7 +8,7 @@ namespace AutomationReqnrollProject.Pages
         WebDriver driver;
         public Login_Page()
         {
-         this.driver = Browser.driver;   
+         this.driver = Browser.GetDriver();
         }
 
         public By UserNameElement = By.Id("user-name");

@@ -13,7 +13,7 @@ namespace AutomationReqnrollProject.StepDefinitions
 
         public DownloadUpload_StepDefinitions()
         {
-            driver = Browser.driver;
+            driver = Browser.GetDriver();
             downloadUpload_Page = new DownloadUpload_Page();
         }
 
@@ -40,7 +40,7 @@ namespace AutomationReqnrollProject.StepDefinitions
         {
             bool isFileExist = File.Exists(Path.Combine(Path.GetFullPath(TestContext.Parameters["DownloadPath"]), "sampleFile.jpeg"));
 
-            Assert.True(isFileExist, "File is not downloaded");
+            Assert.That(isFileExist, Is.True, "File is not downloaded");
         }
 
         [When("the user uploads the file")]

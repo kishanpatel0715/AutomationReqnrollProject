@@ -10,13 +10,11 @@ namespace AutomationReqnrollProject.StepDefinitions
     [Binding]
     public class PracticeForm_StepDefinitions
     {
-        WebDriver driver;
         PracticeForm_Page practiceForm_Page;
         WaitHelper waitHelper;
 
         public PracticeForm_StepDefinitions()
         {
-            driver = Browser.driver;
             practiceForm_Page = new PracticeForm_Page();
             waitHelper = new WaitHelper();
         }
@@ -52,10 +50,10 @@ namespace AutomationReqnrollProject.StepDefinitions
         public void ThenTheFormIsSubmittedSuccessfully()
         {
             bool IsSuccessMessageIsDisplayed;
-
+            
             try
             {
-                IsSuccessMessageIsDisplayed = driver.FindElement(By.Id("example-modal-sizes-title-lg")).Displayed;
+                IsSuccessMessageIsDisplayed = waitHelper.WaitForElementToBeVisible(By.Id("example-modal-sizes-title-lg"),3).Displayed; 
             }
 
             catch (NoSuchElementException)
@@ -63,7 +61,7 @@ namespace AutomationReqnrollProject.StepDefinitions
                 IsSuccessMessageIsDisplayed = false;
             }
 
-            Assert.True(IsSuccessMessageIsDisplayed, "Form submission is failed");
+            Assert.That(IsSuccessMessageIsDisplayed, Is.True, "Form submission is failed");
         }
 
         [Then("the following details are displayed:")]
@@ -73,14 +71,14 @@ namespace AutomationReqnrollProject.StepDefinitions
 
             var output = practiceForm_Page.GetSubmittedData();
 
-            Assert.AreEqual(input.FirstName + " " + input.LastName, output[0].FirstName, "First Name or Last Name is incorrect");
-            Assert.AreEqual(input.Email, output[0].Email, "Email is incorrect");
-            Assert.AreEqual(input.Gender, output[0].Gender, "Gender is incorrect");
-            Assert.AreEqual(input.Mobile, output[0].Mobile, "Mobile is incorrect");
-            Assert.AreEqual(input.Hobbies, output[0].Hobbies, "Hobbies is incorrect");
-            Assert.AreEqual(input.Picture, output[0].Picture, "Picture is incorrect");
-            Assert.AreEqual(input.CurrentAddress, output[0].CurrentAddress, "Current Address is incorrect");
-            Assert.AreEqual(input.State + " " + input.City, output[0].State, "State or City is incorrect");
+            Assert.That(output[0].FirstName, Is.EqualTo(input.FirstName + " " + input.LastName), "First Name or Last Name is incorrect");
+            Assert.That(output[0].Email, Is.EqualTo(input.Email), "Email is incorrect");
+            Assert.That(output[0].Gender, Is.EqualTo(input.Gender), "Gender is incorrect");
+            Assert.That(output[0].Mobile, Is.EqualTo(input.Mobile), "Mobile is incorrect");
+            Assert.That(output[0].Hobbies, Is.EqualTo(input.Hobbies), "Hobbies is incorrect");
+            Assert.That(output[0].Picture, Is.EqualTo(input.Picture), "Picture is incorrect");
+            Assert.That(output[0].CurrentAddress, Is.EqualTo(input.CurrentAddress), "Current Address is incorrect");
+            Assert.That(output[0].State, Is.EqualTo(input.State + " " + input.City), "State or City is incorrect");
         }
     }
 }

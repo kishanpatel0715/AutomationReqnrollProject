@@ -8,13 +8,12 @@ namespace AutomationReqnrollProject.StepDefinitions
     [Binding]
     public sealed class Login_StepDefinitions
     {
-        // For additional details on Reqnroll step definitions see https://go.reqnroll.net/doc-stepdef
         WebDriver driver;
         Login_Page loginPage;
 
         public Login_StepDefinitions()
         {            
-            driver = Browser.driver;
+            driver = Browser.GetDriver();
             loginPage = new Login_Page();
         }
 
@@ -50,7 +49,7 @@ namespace AutomationReqnrollProject.StepDefinitions
                 isSideMenuIsDisplayed = false;
             }
 
-            Assert.True(isSideMenuIsDisplayed, "Login is failed");
+            Assert.That(isSideMenuIsDisplayed, Is.True, "Login is failed");
         }
 
         [When(@"user enters invalid (.*) and (.*)")]
@@ -86,7 +85,7 @@ namespace AutomationReqnrollProject.StepDefinitions
                  isErrorMessageDisplayed = false;
              }
 
-            Assert.True(isErrorMessageDisplayed, "Invalid user gets logged in successfully");
+            Assert.That(isErrorMessageDisplayed, Is.True, "Invalid user gets logged in successfully");
         }
 
         [Then("user is logged-out")]
@@ -104,7 +103,7 @@ namespace AutomationReqnrollProject.StepDefinitions
                 isLoginButtonDisplayed = false;
             }
 
-            Assert.True(isLoginButtonDisplayed, "Logout is failed");
+            Assert.That(isLoginButtonDisplayed, Is.True, "Logout is failed");
         }
     }
 }

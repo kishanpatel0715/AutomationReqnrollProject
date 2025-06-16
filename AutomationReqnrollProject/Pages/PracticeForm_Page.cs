@@ -11,7 +11,7 @@ namespace AutomationReqnrollProject.Pages
 
         public PracticeForm_Page()
         {
-            driver = Browser.driver;
+            driver = Browser.GetDriver();
             formHelper = new FormHelper();
         }
 

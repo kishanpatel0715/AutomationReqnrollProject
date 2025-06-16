@@ -11,7 +11,7 @@ namespace AutomationReqnrollProject.Helper
 
         public WaitHelper()
         { 
-            this.driver = Browser.driver;
+            this.driver = Browser.GetDriver();
         }
 
         public IWebElement WaitForElementToBeVisible(By element, int timeOutInSeconds)

@@ -14,7 +14,7 @@ namespace AutomationReqnrollProject.StepDefinitions
 
         public WindowsTab_StepDefinitions()
         {
-            driver = Browser.driver;
+            driver = Browser.GetDriver();
             windowsTab_Page = new WindowsTab_Page();
         }
 
@@ -49,7 +49,7 @@ namespace AutomationReqnrollProject.StepDefinitions
         [Then("the new tab is displayed with the text {string}")]
         public void ThenTheNewTabIsDisplayedWithTheText(string expectedText)
         {
-            Assert.AreEqual(expectedText, windowsTab_Page.NewTabText, "Text is incorrect");
+            Assert.That(windowsTab_Page.NewTabText, Is.EqualTo(expectedText), "Text is incorrect");
         }
 
         [When("the user clicks the New Window button")]
@@ -67,7 +67,7 @@ namespace AutomationReqnrollProject.StepDefinitions
         [Then("the new window is displayed with the text {string}")]
         public void ThenTheNewWindowIsDisplayedWithTheText(string expectedText)
         {
-            Assert.AreEqual(expectedText, windowsTab_Page.NewWindowText, "Text is incorrect");
+            Assert.That(windowsTab_Page.NewWindowText, Is.EqualTo(expectedText), "Text is incorrect");
         }
     }
 }

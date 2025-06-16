@@ -9,7 +9,7 @@ namespace AutomationReqnrollProject.Pages
 
         public DynamicProperties_Page()
         {
-            driver = Browser.driver;
+            driver = Browser.GetDriver();
         }
 
         public By VisibleAfter5SecElement = By.Id("visibleAfter");

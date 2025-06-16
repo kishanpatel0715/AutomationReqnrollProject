@@ -22,20 +22,20 @@ namespace AutomationReqnrollProject.StepDefinitions
             ExcelWorkbook actualWorkBook = new ExcelPackage(new FileInfo(actualFilePath)).Workbook;
             ExcelWorkbook expectedWorkBook = new ExcelPackage(new FileInfo(expectedFilePath)).Workbook;
 
-            Assert.AreEqual(expectedWorkBook.Worksheets.Count, actualWorkBook.Worksheets.Count, "Total number of worksheets have mismatch");
+            Assert.That(actualWorkBook.Worksheets.Count, Is.EqualTo(expectedWorkBook.Worksheets.Count), "Total number of worksheets have mismatch");
 
 
             for (int i=0; i< expectedWorkBook.Worksheets.Count; i++)
             {
-                Assert.AreEqual(expectedWorkBook.Worksheets[i].Dimension.Rows, actualWorkBook.Worksheets[i].Dimension.Rows, "Total number of rows have mismatch");
-                Assert.AreEqual(expectedWorkBook.Worksheets[i].Dimension.Columns, actualWorkBook.Worksheets[i].Dimension.Columns, "Total number of columns have mismatch");
+                Assert.That(actualWorkBook.Worksheets[i].Dimension.Rows, Is.EqualTo(expectedWorkBook.Worksheets[i].Dimension.Rows), "Total number of rows have mismatch");
+                Assert.That(actualWorkBook.Worksheets[i].Dimension.Columns, Is.EqualTo(expectedWorkBook.Worksheets[i].Dimension.Columns), "Total number of columns have mismatch");
 
 
                 for (int j=1; j<= expectedWorkBook.Worksheets[i].Dimension.Rows; j++)
                 {
                     for (int k=1; k<= expectedWorkBook.Worksheets[i].Dimension.Columns; k++)
                     {
-                        Assert.AreEqual(expectedWorkBook.Worksheets[i].Cells[j, k].Value.ToString(), actualWorkBook.Worksheets[i].Cells[j, k].Value.ToString(), $"Value is incorrect at Row {j} Column {k}");
+                        Assert.That(actualWorkBook.Worksheets[i].Cells[j, k].Value.ToString(), Is.EqualTo(expectedWorkBook.Worksheets[i].Cells[j, k].Value.ToString()), $"Value is incorrect at Row {j} Column {k}");
                     }
                 }
             }

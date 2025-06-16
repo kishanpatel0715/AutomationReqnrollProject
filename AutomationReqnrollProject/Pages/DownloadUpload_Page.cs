@@ -1,7 +1,6 @@
 ﻿using AutomationReqnrollProject.Helper;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools.V132.Debugger;
 
 namespace AutomationReqnrollProject.Pages
 {
@@ -12,7 +11,7 @@ namespace AutomationReqnrollProject.Pages
 
         public DownloadUpload_Page()
         {
-            driver = Browser.driver;
+            driver = Browser.GetDriver();
         }
 
         By DownloadElement = By.LinkText("Download");

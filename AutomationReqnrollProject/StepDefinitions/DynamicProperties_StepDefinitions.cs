@@ -8,13 +8,11 @@ namespace AutomationReqnrollProject.StepDefinitions
     [Binding]
     class DynamicProperties_StepDefinitions
     {
-        WebDriver driver;
         WaitHelper waitHelper;
         DynamicProperties_Page dynamicProperties_Page;
 
         public DynamicProperties_StepDefinitions()
         {
-            driver = Browser.driver;
             waitHelper = new WaitHelper();
             dynamicProperties_Page = new DynamicProperties_Page();
         }
@@ -44,7 +42,7 @@ namespace AutomationReqnrollProject.StepDefinitions
                 isElementDisplayedAfter5Sec = false;
             }
 
-            Assert.True(isElementDisplayedAfter5Sec, "Button is not visible after 5 seconds");
+            Assert.That(isElementDisplayedAfter5Sec, Is.True, "Button is not visible after 5 seconds");
         }
 
         [Then("after {int} seconds, button is enabled")]
@@ -61,7 +59,7 @@ namespace AutomationReqnrollProject.StepDefinitions
                 isElementEnabledAfter5Sec = false;
             }
 
-            Assert.True(isElementEnabledAfter5Sec, "Button is not enabled after 5 seconds");
+            Assert.That(isElementEnabledAfter5Sec, Is.True, "Button is not enabled after 5 seconds");
         }
     }
 }

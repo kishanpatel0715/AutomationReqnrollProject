@@ -8,26 +8,29 @@ namespace AutomationReqnrollProject.Helper
 {
     class Browser
     {
-        public static WebDriver? driver;
         public static string downloadPath = Path.GetFullPath(TestContext.Parameters["DownloadPath"]);
+        private static ThreadLocal<WebDriver> threadLocal = new ThreadLocal<WebDriver>();
 
-        public static WebDriver GetDriver(String browser)
+        public static void SetDriver(String browser)
         {
 
             switch (browser.ToLower())
             {
                 case "chrome":
-                    return GetChromeDriver();
+                    SetChromeDriver();
+                    break;
 
                 case "edge":
-                    return GetEdgeDriver();
+                    SetEdgeDriver();
+                    break;
 
                 default:
-                    return GetFireFoxDriver();
+                    SetFireFoxDriver();
+                    break;
             }
         }
 
-        public static WebDriver GetChromeDriver()
+        public static void SetChromeDriver()
         {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("start-maximized");
@@ -35,7 +38,7 @@ namespace AutomationReqnrollProject.Helper
             chromeOptions.AddArgument("--disable-extensions");
             chromeOptions.AddArgument("--disable-popup-blocking");
             chromeOptions.AddArgument("--disable-gpu");
-            //chromeOptions.AddArgument("--incognito");
+            chromeOptions.AddArgument("--incognito");
             chromeOptions.AddArgument("--no-sandbox");
 
             chromeOptions.AddUserProfilePreference("download.default_directory", downloadPath);
@@ -46,12 +49,10 @@ namespace AutomationReqnrollProject.Helper
                 chromeOptions.AddArgument("--headless");
             }
 
-            driver = new ChromeDriver(chromeOptions);
-
-            return driver;
+            threadLocal.Value = new ChromeDriver(chromeOptions);
         }
 
-        public static WebDriver GetEdgeDriver()
+        public static void SetEdgeDriver()
         {
             EdgeOptions edgeOptions = new EdgeOptions();
             edgeOptions.AddArgument("--start-maximized");
@@ -71,12 +72,10 @@ namespace AutomationReqnrollProject.Helper
 
             }
 
-            driver = new EdgeDriver(edgeOptions);
-
-            return driver;
+            threadLocal.Value = new EdgeDriver(edgeOptions);           
         }
 
-        public static WebDriver GetFireFoxDriver()
+        public static void SetFireFoxDriver()
         {
             FirefoxOptions fireFoxOptions = new FirefoxOptions();
             fireFoxOptions.AddArgument("--start-maximized");
@@ -90,12 +89,20 @@ namespace AutomationReqnrollProject.Helper
             if (TestContext.Parameters["Headless"] == "true")
             {
                 fireFoxOptions.AddArgument("--headless");
-
             }
 
-            driver = new FirefoxDriver(fireFoxOptions);
+            threadLocal.Value  = new FirefoxDriver(fireFoxOptions);
+        }
 
-            return driver;
+        public static WebDriver GetDriver()
+        {
+            return threadLocal.Value;
+        }
+
+        public static void Quit()
+        {
+            threadLocal.Value.Quit();
+            threadLocal.Value.Dispose();
         }
     }
 }

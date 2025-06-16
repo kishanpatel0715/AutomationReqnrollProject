@@ -9,7 +9,7 @@ namespace AutomationReqnrollProject.Pages
 
         public Alerts_Page()
         {
-            driver = Browser.driver;
+            driver = Browser.GetDriver();
         }
 
         public By AlertElement = By.Id("alertButton");

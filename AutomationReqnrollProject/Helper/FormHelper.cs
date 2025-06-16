@@ -6,10 +6,12 @@ namespace AutomationReqnrollProject.Helper
     class FormHelper
     {
         WebDriver driver;
+        WaitHelper waitHelper;
 
         public FormHelper()
         {
-            driver = Browser.driver;
+            driver = Browser.GetDriver();
+            waitHelper = new WaitHelper();
         } 
 
         public void EnterFormFieldData(By element, string value)
@@ -25,6 +27,7 @@ namespace AutomationReqnrollProject.Helper
         public void SelectFromCustomDropDown(By selectElement, string selectOption)
         {
             driver.FindElement(selectElement).Click();
+            ScrollHelper.ScrollToTheElement(By.XPath($"//div[text()='{selectOption}']"));
             driver.FindElement(By.XPath($"//div[text()='{selectOption}']")).Click();
         }
 

@@ -15,7 +15,7 @@ namespace AutomationReqnrollProject.StepDefinitions
 
         public Alert_StepDefinitions()
         {
-            driver = Browser.driver;
+            driver = Browser.GetDriver();
             waitHelper = new WaitHelper();
             alerts_Page = new Alerts_Page();
         }
@@ -55,13 +55,13 @@ namespace AutomationReqnrollProject.StepDefinitions
         public void ThenAnAlertIsDisplayedWithTheText(string alertExpectedText)
         {
             IAlert alert = driver.SwitchTo().Alert();
-            Assert.AreEqual(alertExpectedText, alert.Text, "Alert Text is incorrect");
+            Assert.That(alert.Text, Is.EqualTo(alertExpectedText), "Alert Text is incorrect");
         }
 
         [Then("the alert is no longer visible")]
         public void ThenTheAlertIsNoLongerVisible()
-        {
-            Assert.True(driver.FindElement(alerts_Page.AlertElement).Displayed, "Alert is still present");
+        {            
+            Assert.That(driver.FindElement(alerts_Page.AlertElement).Displayed, Is.True, "Alert is still present");
         }
 
         [When("user clicks on button to see delayed alert")]
@@ -109,7 +109,7 @@ namespace AutomationReqnrollProject.StepDefinitions
                 actualMessage = driver.FindElement(alerts_Page.ConfirmResultTextElement).Text;
             }
 
-            Assert.AreEqual(expectedMessage, actualMessage, "Incorrect message is displayed");
+            Assert.That(actualMessage, Is.EqualTo(expectedMessage), "Incorrect message is displayed");
         }
 
         [When("the user opens the prompt box")]
@@ -124,6 +124,18 @@ namespace AutomationReqnrollProject.StepDefinitions
             AlertContext.name = name;
             IAlert alert = driver.SwitchTo().Alert();
             alert.SendKeys(name);
-        }           
+        }
+
+        [When("the user opens the google page")]
+        public void WhenTheUserOpensTheGooglePage()
+        {
+            driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+        }
+
+        [Then("{string} is displayed")]
+        public void ThenIsDisplayed(string name)
+        {
+            Assert.That(driver.FindElement(By.Id("user-name")).Text, Is.EqualTo(name), "User name is not displayed correctly");
+        }
     }
 }

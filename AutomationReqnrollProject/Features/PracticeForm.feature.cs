@@ -10,17 +10,16 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
+using Reqnroll;
 namespace AutomationReqnrollProject.Features
 {
-    using Reqnroll;
-    using System;
-    using System.Linq;
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
-    [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
+    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("PracticeForm")]
+    [NUnit.Framework.FixtureLifeCycleAttribute(NUnit.Framework.LifeCycle.InstancePerTestCase)]
     [NUnit.Framework.CategoryAttribute("PracticeForm")]
     public partial class PracticeFormFeature
     {
@@ -30,41 +29,63 @@ namespace AutomationReqnrollProject.Features
         private static string[] featureTags = new string[] {
                 "PracticeForm"};
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "PracticeForm", "This feature file covers the Form scenarios", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "PracticeForm", "This feature file covers the Form scenarios", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "PracticeForm.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
-        public static async System.Threading.Tasks.Task FeatureSetupAsync()
+        public static async global::System.Threading.Tasks.Task FeatureSetupAsync()
         {
         }
         
         [NUnit.Framework.OneTimeTearDownAttribute()]
-        public static async System.Threading.Tasks.Task FeatureTearDownAsync()
+        public static async global::System.Threading.Tasks.Task FeatureTearDownAsync()
         {
         }
         
         [NUnit.Framework.SetUpAttribute()]
-        public async System.Threading.Tasks.Task TestInitializeAsync()
+        public async global::System.Threading.Tasks.Task TestInitializeAsync()
         {
             testRunner = global::Reqnroll.TestRunnerManager.GetTestRunnerForAssembly(featureHint: featureInfo);
-            if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Equals(featureInfo) == false)))
+            try
             {
-                await testRunner.OnFeatureEndAsync();
+                if (((testRunner.FeatureContext != null) 
+                            && (testRunner.FeatureContext.FeatureInfo.Equals(featureInfo) == false)))
+                {
+                    await testRunner.OnFeatureEndAsync();
+                }
             }
-            if ((testRunner.FeatureContext == null))
+            finally
             {
-                await testRunner.OnFeatureStartAsync(featureInfo);
+                if (((testRunner.FeatureContext != null) 
+                            && testRunner.FeatureContext.BeforeFeatureHookFailed))
+                {
+                    throw new global::Reqnroll.ReqnrollException("Scenario skipped because of previous before feature hook error");
+                }
+                if ((testRunner.FeatureContext == null))
+                {
+                    await testRunner.OnFeatureStartAsync(featureInfo);
+                }
             }
         }
         
         [NUnit.Framework.TearDownAttribute()]
-        public async System.Threading.Tasks.Task TestTearDownAsync()
+        public async global::System.Threading.Tasks.Task TestTearDownAsync()
         {
-            await testRunner.OnScenarioEndAsync();
-            global::Reqnroll.TestRunnerManager.ReleaseTestRunner(testRunner);
+            if ((testRunner == null))
+            {
+                return;
+            }
+            try
+            {
+                await testRunner.OnScenarioEndAsync();
+            }
+            finally
+            {
+                global::Reqnroll.TestRunnerManager.ReleaseTestRunner(testRunner);
+                testRunner = null;
+            }
         }
         
         public void ScenarioInitialize(global::Reqnroll.ScenarioInfo scenarioInfo)
@@ -73,17 +94,17 @@ namespace AutomationReqnrollProject.Features
             testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
-        public async System.Threading.Tasks.Task ScenarioStartAsync()
+        public async global::System.Threading.Tasks.Task ScenarioStartAsync()
         {
             await testRunner.OnScenarioStartAsync();
         }
         
-        public async System.Threading.Tasks.Task ScenarioCleanupAsync()
+        public async global::System.Threading.Tasks.Task ScenarioCleanupAsync()
         {
             await testRunner.CollectScenarioErrorsAsync();
         }
         
-        public virtual async System.Threading.Tasks.Task FeatureBackgroundAsync()
+        public virtual async global::System.Threading.Tasks.Task FeatureBackgroundAsync()
         {
 #line 5
 #line hidden
@@ -97,10 +118,10 @@ namespace AutomationReqnrollProject.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("TC123459 Verify successful Practice Form submission")]
-        public async System.Threading.Tasks.Task TC123459VerifySuccessfulPracticeFormSubmission()
+        public async global::System.Threading.Tasks.Task TC123459VerifySuccessfulPracticeFormSubmission()
         {
             string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("TC123459 Verify successful Practice Form submission", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 9
   this.ScenarioInitialize(scenarioInfo);
