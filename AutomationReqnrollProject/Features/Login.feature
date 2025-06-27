@@ -16,9 +16,9 @@ This feature file covers the login scenarios
     Then error message is displayed
 
     Examples: 
-      | User_Name | Password |
-      | Kishan    | Patel    |
-      | CV        | Patel    |
+      | User_Name     | Password     |
+      | Kishan        | Patel        |
+      | standard_user | secret_sauce |  
 
   Scenario: TC123458 Verify Successful Log-Out
     When user enters "standard_user" and "secret_sauce"

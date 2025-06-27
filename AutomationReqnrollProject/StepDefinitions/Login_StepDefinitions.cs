@@ -52,7 +52,7 @@ namespace AutomationReqnrollProject.StepDefinitions
             Assert.That(isSideMenuIsDisplayed, Is.True, "Login is failed");
         }
 
-        [When(@"user enters invalid (.*) and (.*)")]
+        [When("user enters invalid (.*) and (.*)")]
         public void WhenUserEntersInvalidCredentials(string userName, string password)
         {
             loginPage.EnterCredential(userName, password);
